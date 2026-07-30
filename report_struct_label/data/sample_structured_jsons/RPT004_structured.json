@@ -1,0 +1,44 @@
+{
+  "report_id": "RPT004",
+  "data": {
+    "examination": "Chest PA and lateral",
+    "clinical_information": "72-year-old male with COPD and worsening dyspnea.",
+    "report_date": "",
+    "comparison": { "text": "Chest X-ray from 01/15/2025", "label": "present" },
+    "support_devices": {
+      "airway": { "text": "", "label": "not present" },
+      "gastric_tube": { "text": "", "label": "not present" },
+      "central_line": { "text": "", "label": "not present" },
+      "chest_drain": { "text": "", "label": "not present" },
+      "pacemaker": { "text": "A dual-chamber pacemaker is noted with leads in the right atrium and right ventricle", "label": "present" },
+      "other": { "text": "", "label": "not present" }
+    },
+    "thoracic_organs": {
+      "heart": { "text": "The heart remains enlarged, stable compared to prior", "label": 3 },
+      "mediastinum": { "text": "", "label": 0 }
+    },
+    "pathologies": {
+      "lung": {
+        "pneumonia": { "text": "No new focal consolidation to suggest pneumonia", "label": 1 },
+        "atelectasis": { "text": "", "label": 0 },
+        "emphysema": { "text": "Lungs show hyperinflation and flattened diaphragms consistent with emphysema", "label": 3 },
+        "fibrosis": { "text": "", "label": 0 },
+        "mass": { "text": "", "label": 0 }
+      },
+      "pleura": {
+        "pneumothorax": { "text": "No pneumothorax", "label": 1 },
+        "pleural_effusion": { "text": "No pleural effusion", "label": 1 }
+      },
+      "vessels": {
+        "congestion": { "text": "interval worsening of bilateral pulmonary congestion", "label": 3 },
+        "pulmonary_edema": { "text": "new perihilar haze suggestive of early pulmonary edema", "label": 2 }
+      },
+      "bones": {
+        "fracture": { "text": "No fractures", "label": 1 },
+        "other": { "text": "", "label": 0 }
+      }
+    },
+    "other_findings": "",
+    "impression": "1. Worsening pulmonary congestion with early pulmonary edema. 2. Stable cardiomegaly. 3. Emphysematous changes, stable. 4. Dual-chamber pacemaker in place."
+  }
+}

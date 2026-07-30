@@ -1,0 +1,24 @@
+# Evaluation dependencies (in addition to the training requirements).
+numpy>=1.23
+pandas>=1.5
+pyyaml>=6.0
+pillow>=9.0
+scikit-learn>=1.1
+pyarrow>=12.0
+torch>=2.0
+torchvision>=0.15
+tqdm>=4.60
+
+# Inference demo (run_inference_demo.py)
+safetensors>=0.4             # load the heads-only RadPRISM checkpoint
+matplotlib>=3.5              # attention-overlay colormaps
+transformers>=4.51.0,<5      # Qwen3 support; v5 requires a newer runtime stack
+
+# Optional: only needed for real (non-"hash") zero-shot / retrieval text embedding,
+# and to pre-compute the checkpoint's German text banks (utils/embed_radprism_text_db.py).
+sentence-transformers>=2.7   # backend="sentence_transformer" / Qwen3-Embedding-4B
+
+# Optional: LLM consistency check (llm_consistency_check.py) — a real run needs an
+# OpenAI-compatible endpoint. The --dry-run mode needs neither of these.
+openai>=1.0
+httpx>=0.24

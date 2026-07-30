@@ -1,0 +1,178 @@
+report_id,examination,report_text
+RPT001,Chest PA and lateral,"INDICATION: 68-year-old male with shortness of breath. Rule out pneumonia.
+
+FINDINGS:
+Heart size is mildly enlarged. The mediastinum is unremarkable. There is a left-sided pleural effusion with associated basilar opacity, likely representing atelectasis versus pneumonic infiltrate. No pneumothorax. No pulmonary edema. Osseous structures are intact without fracture. A left subclavian central venous catheter is in place with tip in the SVC. No other support devices.
+
+IMPRESSION:
+1. Cardiomegaly.
+2. Left pleural effusion with left basilar opacity, differential includes atelectasis and pneumonia.
+3. Left subclavian CVC in satisfactory position."
+RPT002,Chest portable AP,"INDICATION: Post-intubation check.
+
+FINDINGS:
+An endotracheal tube is present with tip approximately 4 cm above the carina, in satisfactory position. A nasogastric tube is seen with tip in the stomach. Heart size is normal. Lungs are clear. No pleural effusion. No pneumothorax. Costophrenic angles are clear. No acute osseous abnormality.
+
+IMPRESSION:
+Endotracheal tube and NG tube in satisfactory position. No acute cardiopulmonary process."
+RPT003,Chest PA,"INDICATION: Routine pre-operative evaluation. 55-year-old female.
+
+FINDINGS:
+Heart size is within normal limits. Mediastinum is midline and unremarkable. Lungs are clear bilaterally. No focal consolidation, pleural effusion, or pneumothorax. No pulmonary edema or congestion. Bony thorax is intact. No support devices. Mild degenerative changes of the thoracic spine noted.
+
+IMPRESSION:
+No acute cardiopulmonary abnormality. Mild thoracic spine degenerative changes."
+RPT004,Chest PA and lateral,"INDICATION: 72-year-old male with COPD and worsening dyspnea. Comparison: Chest X-ray from 01/15/2025.
+
+FINDINGS:
+Compared to prior study from 01/15/2025, there is interval worsening of bilateral pulmonary congestion with new perihilar haze suggestive of early pulmonary edema. The heart remains enlarged, stable compared to prior. Lungs show hyperinflation and flattened diaphragms consistent with emphysema. No new focal consolidation to suggest pneumonia. No pleural effusion. No pneumothorax. A dual-chamber pacemaker is noted with leads in the right atrium and right ventricle. No fractures.
+
+IMPRESSION:
+1. Worsening pulmonary congestion with early pulmonary edema.
+2. Stable cardiomegaly.
+3. Emphysematous changes, stable.
+4. Dual-chamber pacemaker in place."
+RPT005,Chest portable AP,"INDICATION: Fall from standing height, rib pain.
+
+FINDINGS:
+Heart size appears normal for technique. Lungs are clear without consolidation. No pleural effusion. No pneumothorax. There is a minimally displaced fracture of the right 7th rib laterally. Mild degenerative changes. No support devices identified. Subtle linear atelectasis at the right base.
+
+IMPRESSION:
+1. Minimally displaced right 7th rib fracture.
+2. Subtle right basilar atelectasis, may be related to splinting.
+3. No pneumothorax."
+RPT006,Chest PA and lateral,"INDICATION: 45-year-old female with fever and productive cough for 5 days.
+
+FINDINGS:
+Heart size is normal. Mediastinum is unremarkable. There is a dense consolidation in the right lower lobe with air bronchograms, consistent with pneumonia. Mild associated right pleural effusion. No pneumothorax. No pulmonary edema. No support devices. Bony thorax intact.
+
+IMPRESSION:
+1. Right lower lobe pneumonia with air bronchograms.
+2. Small right pleural effusion, likely parapneumonic."
+RPT007,Chest portable AP,"INDICATION: ICU patient, day 3 post cardiac surgery.
+
+FINDINGS:
+Status post median sternotomy. Heart size is moderately enlarged. Mediastinal widening consistent with post-surgical change. An endotracheal tube is present, tip 3 cm above the carina. A right internal jugular central venous catheter is seen with tip at the cavoatrial junction. A left-sided chest drain is in place. A nasogastric tube with tip in the stomach. Bilateral small pleural effusions, left greater than right. Bilateral basal atelectasis. No pneumothorax. Sternal wires intact.
+
+IMPRESSION:
+1. Post-cardiac surgery changes with median sternotomy and sternal wires.
+2. Lines and tubes in satisfactory position.
+3. Bilateral pleural effusions and basal atelectasis."
+RPT008,Chest PA,"INDICATION: 62-year-old male, follow-up known pulmonary fibrosis. Comparison: Chest X-ray from 09/10/2024.
+
+FINDINGS:
+Heart size is mildly enlarged. Mediastinum is unremarkable. Bilateral basal reticular opacities with honeycombing pattern, consistent with known pulmonary fibrosis, stable compared to prior. No new consolidation. No pleural effusion. No pneumothorax. No pulmonary congestion. A dual-chamber pacemaker is in place, unchanged. No acute osseous abnormality.
+
+IMPRESSION:
+1. Stable bilateral pulmonary fibrosis.
+2. Mild cardiomegaly, unchanged.
+3. Pacemaker in stable position."
+RPT009,Chest PA and lateral,"INDICATION: 38-year-old male with sudden onset pleuritic chest pain and dyspnea.
+
+FINDINGS:
+Heart size is normal. Mediastinum is unremarkable. There is a moderate left-sided pneumothorax with approximately 30% lung collapse. No pleural effusion. Lungs are otherwise clear without consolidation or mass. No pulmonary congestion or edema. No support devices. Bony thorax is intact.
+
+IMPRESSION:
+1. Moderate left-sided pneumothorax.
+2. No additional cardiopulmonary abnormality."
+RPT010,Chest portable AP,"INDICATION: 80-year-old female with acute decompensated heart failure.
+
+FINDINGS:
+Heart is markedly enlarged. Mediastinum is widened. Bilateral pulmonary congestion with prominent cephalization of vessels. Bilateral pleural effusions, moderate on the right, small on the left. Bilateral perihilar alveolar opacities suggestive of pulmonary edema. Bilateral basal atelectasis. No pneumothorax. A right subclavian central venous catheter is in place. No acute fracture.
+
+IMPRESSION:
+1. Marked cardiomegaly.
+2. Pulmonary edema with bilateral pleural effusions.
+3. Bilateral basal atelectasis.
+4. Right subclavian central line in place."
+RPT011,Chest PA,"INDICATION: 50-year-old male with incidental finding on CT. Follow-up chest X-ray.
+
+FINDINGS:
+Heart size is normal. Mediastinum is unremarkable. A spiculated 2.5 cm mass is seen in the right upper lobe, suspicious for malignancy. No pleural effusion. No pneumothorax. Lungs are otherwise clear. No pulmonary congestion or edema. No support devices. Bony thorax is intact without lytic or blastic lesions.
+
+IMPRESSION:
+1. Suspicious 2.5 cm spiculated right upper lobe mass. CT correlation and biopsy recommended.
+2. No other acute cardiopulmonary findings."
+RPT012,Chest PA and lateral,"INDICATION: 58-year-old female with cough and weight loss.
+
+FINDINGS:
+Heart size is normal. Mediastinum shows mildly prominent bilateral hilar lymphadenopathy. A 3 cm left hilar mass is noted. Left upper lobe consolidation with volume loss, concerning for post-obstructive pneumonia. Mild left pleural effusion. No pneumothorax. No pulmonary edema or congestion. No support devices. Pathologic fracture of the left 5th rib posteriorly noted with associated soft tissue mass, suspicious for metastasis.
+
+IMPRESSION:
+1. Left hilar mass with left upper lobe consolidation, concerning for malignancy with post-obstructive pneumonia.
+2. Pathologic left 5th rib fracture, suspicious for metastatic disease.
+3. Small left pleural effusion.
+4. Bilateral hilar lymphadenopathy."
+RPT013,Chest portable AP,"INDICATION: 70-year-old male status post chest tube placement for empyema.
+
+FINDINGS:
+Heart size is normal. A left-sided chest tube is in place within the left pleural space. Significant improvement in the left pleural effusion compared to prior, with only a small residual amount. Left lower lobe atelectasis. No pneumothorax. Right lung is clear. No pulmonary edema or congestion. No additional support devices. Bony thorax intact.
+
+IMPRESSION:
+1. Left chest tube in satisfactory position.
+2. Interval improvement of left pleural effusion.
+3. Residual left lower lobe atelectasis."
+RPT014,Chest PA and lateral,"INDICATION: 65-year-old female with dyspnea on exertion and bilateral leg edema.
+
+FINDINGS:
+Heart is markedly enlarged. The mediastinum is unremarkable. Bilateral pleural effusions, moderate. Pulmonary vascular congestion with cephalization. No overt pulmonary edema. No pneumothorax. No focal consolidation. No mass lesion. No support devices. Mild compression fracture of T12, appears chronic. Mild degenerative changes of the spine.
+
+IMPRESSION:
+1. Marked cardiomegaly with pulmonary venous congestion and bilateral pleural effusions, suggestive of congestive heart failure.
+2. Chronic T12 compression fracture.
+3. No pneumonia."
+RPT015,Chest portable AP,"INDICATION: 28-year-old male, motor vehicle accident, trauma evaluation.
+
+FINDINGS:
+Heart size is normal. Mediastinum is unremarkable without widening. Bilateral pulmonary contusions, predominantly in the right middle and lower lobes. Small right pneumothorax. No pleural effusion. An endotracheal tube is in place, tip 5 cm above carina. A right subclavian central venous catheter is present. A right-sided chest drain is noted. Multiple right-sided rib fractures involving ribs 4 through 7. Left-sided ribs are intact.
+
+IMPRESSION:
+1. Bilateral pulmonary contusions, worse on the right.
+2. Small right pneumothorax.
+3. Multiple right rib fractures (4th through 7th).
+4. Lines and tubes in satisfactory position."
+RPT016,Chest PA,"INDICATION: 48-year-old female, follow-up after treatment for community-acquired pneumonia.
+
+FINDINGS:
+Heart size is normal. Mediastinum is unremarkable. Near-complete resolution of the previously seen right lower lobe consolidation. Minimal residual linear opacity at the right base, likely subsegmental atelectasis. No pleural effusion. No pneumothorax. No pulmonary edema. No support devices. Osseous structures are intact.
+
+IMPRESSION:
+1. Near-complete resolution of right lower lobe pneumonia.
+2. Minimal right basilar atelectasis.
+3. No complications."
+RPT017,Chest PA and lateral,"INDICATION: 75-year-old male with progressive dyspnea. Known COPD.
+
+FINDINGS:
+Heart size is mildly enlarged. Mediastinum is unremarkable. Lungs show severe hyperinflation with flattened hemidiaphragms and increased AP diameter, consistent with advanced emphysema. There is a new right lower lobe consolidation, concerning for pneumonia superimposed on emphysematous changes. Small bilateral pleural effusions. No pneumothorax. Mild pulmonary congestion. A single-chamber pacemaker with right ventricular lead in place. No acute fracture. Diffuse osteopenia noted.
+
+IMPRESSION:
+1. Advanced emphysema with new right lower lobe pneumonia.
+2. Small bilateral pleural effusions.
+3. Mild cardiomegaly and pulmonary congestion.
+4. Single-chamber pacemaker in place."
+RPT018,Chest portable AP,"INDICATION: Neonatal intensive care, premature infant 30 weeks gestational age.
+
+FINDINGS:
+An endotracheal tube is present, tip at T1-T2 level, slightly high but acceptable. An umbilical venous catheter is seen with tip at the diaphragm level. Nasogastric tube with tip in the stomach. Heart size is normal for age. Bilateral diffuse granular opacities consistent with surfactant-deficient lung disease. No focal consolidation. No pneumothorax. No pleural effusion. No osseous abnormality.
+
+IMPRESSION:
+1. Surfactant-deficient lung disease (respiratory distress syndrome).
+2. Lines and tubes in acceptable position."
+RPT019,Chest PA and lateral,"INDICATION: 67-year-old female with chronic cough. Comparison: Chest X-ray from 03/22/2025.
+
+FINDINGS:
+Heart size is within normal limits. Mediastinum is unremarkable. A 1.5 cm well-circumscribed nodule is seen in the left lower lobe, new compared to prior study. No cavitation. Lungs are otherwise clear. No pleural effusion. No pneumothorax. No pulmonary congestion or edema. No support devices. Bony thorax intact without fracture. No degenerative changes.
+
+IMPRESSION:
+1. New 1.5 cm left lower lobe pulmonary nodule. CT recommended for further characterization.
+2. No other acute cardiopulmonary abnormality."
+RPT020,Chest portable AP,"INDICATION: 56-year-old male, status post left thoracotomy for lobectomy, day 1 post-op.
+
+FINDINGS:
+Post-surgical changes in the left hemithorax with left upper lobectomy. Two left-sided chest drains are in place. A left subclavian central venous catheter with tip in the SVC. Heart size is normal. Moderate left pleural effusion and associated left lower lobe atelectasis, expected post-operatively. Subcutaneous emphysema in the left chest wall. No right-sided pneumothorax. Right lung is clear. Surgical staple line noted in the left hilum. No acute fracture aside from post-surgical rib changes.
+
+IMPRESSION:
+1. Expected post left upper lobectomy changes.
+2. Left pleural effusion and atelectasis, post-surgical.
+3. Lines and drains in satisfactory position.
+4. Left chest wall subcutaneous emphysema."

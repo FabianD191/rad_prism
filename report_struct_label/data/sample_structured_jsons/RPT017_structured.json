@@ -1,0 +1,44 @@
+{
+  "report_id": "RPT017",
+  "data": {
+    "examination": "Chest PA and lateral",
+    "clinical_information": "75-year-old male with progressive dyspnea. Known COPD.",
+    "report_date": "",
+    "comparison": { "text": "", "label": "not present" },
+    "support_devices": {
+      "airway": { "text": "", "label": "not present" },
+      "gastric_tube": { "text": "", "label": "not present" },
+      "central_line": { "text": "", "label": "not present" },
+      "chest_drain": { "text": "", "label": "not present" },
+      "pacemaker": { "text": "A single-chamber pacemaker with right ventricular lead in place", "label": "present" },
+      "other": { "text": "", "label": "not present" }
+    },
+    "thoracic_organs": {
+      "heart": { "text": "Heart size is mildly enlarged", "label": 3 },
+      "mediastinum": { "text": "Mediastinum is unremarkable", "label": 1 }
+    },
+    "pathologies": {
+      "lung": {
+        "pneumonia": { "text": "new right lower lobe consolidation, concerning for pneumonia superimposed on emphysematous changes", "label": 3 },
+        "atelectasis": { "text": "", "label": 0 },
+        "emphysema": { "text": "severe hyperinflation with flattened hemidiaphragms and increased AP diameter, consistent with advanced emphysema", "label": 3 },
+        "fibrosis": { "text": "", "label": 0 },
+        "mass": { "text": "", "label": 0 }
+      },
+      "pleura": {
+        "pneumothorax": { "text": "No pneumothorax", "label": 1 },
+        "pleural_effusion": { "text": "Small bilateral pleural effusions", "label": 2 }
+      },
+      "vessels": {
+        "congestion": { "text": "Mild pulmonary congestion", "label": 2 },
+        "pulmonary_edema": { "text": "", "label": 0 }
+      },
+      "bones": {
+        "fracture": { "text": "No acute fracture", "label": 1 },
+        "other": { "text": "Diffuse osteopenia noted", "label": 2 }
+      }
+    },
+    "other_findings": "",
+    "impression": "1. Advanced emphysema with new right lower lobe pneumonia. 2. Small bilateral pleural effusions. 3. Mild cardiomegaly and pulmonary congestion. 4. Single-chamber pacemaker in place."
+  }
+}

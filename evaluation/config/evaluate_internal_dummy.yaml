@@ -1,0 +1,41 @@
+# ============================================================================
+# Dummy internal-evaluation config — smoke test on the bundled dummy dataset.
+# ============================================================================
+# Requires a dummy fine-tuning run (see training/config/finetune_cls_dummy.yaml).
+# Replace <FINETUNE_RUN> with the actual directory under output/dummy_finetune_runs/.
+# Run from the RadPRISM/ root:
+#   python evaluation/evaluate_internal.py --config evaluation/config/evaluate_internal_dummy.yaml
+
+model:
+  run_dir: "output/dummy_finetune_runs/<FINETUNE_RUN>"
+  checkpoint_name: "best_cls.pt"
+  device: "cpu"
+  use_parent_pretrain_config: true
+
+modes:
+  thresholds: true
+  classify: true
+  zero_shot: false      # needs a text-embedding model; set backend below to "hash" to demo it
+  retrieve: true
+
+data:
+  splits: ["val"]
+  batch_size: 4
+  num_workers: 0
+  cached_dataset_path: "data/dummy_image_cache"
+
+# "hash" backend = deterministic pseudo-random vectors, so retrieval/zero-shot run
+# on the dummy without any embedding model (results are NOT meaningful).
+text_embedding:
+  backend: "hash"
+  truncate_dim: 768
+
+zero_shot:
+  prompt_db_path: "data/dummy_zero_shot_prompt_db.json"
+  temperature: 1.0
+
+retrieve:
+  custom_text_db_path: "data/dummy_retrieval_text_db.json"
+  top_k: 3
+
+output_dir: "output/dummy_eval_internal"

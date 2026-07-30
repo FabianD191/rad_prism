@@ -1,0 +1,60 @@
+# ============================================================================
+# Dummy pretraining config — end-to-end smoke test on the bundled dummy dataset.
+# ============================================================================
+# Generate the dummy data first:  python utils/make_dummy_dataset.py
+# Then run (from the RadPRISM/ root):
+#   python training/pretraining/train_run_pretrain.py --config training/config/pretrain_dummy.yaml
+#
+# Uses a small ResNet-50 backbone (no external weights) so it runs on CPU.
+
+paths:
+  master_index_path: "data/dummy_master_index.csv"
+  embedding_dir: "data/dummy_text_emb_cache"
+  label_dir: null
+  run_dir: "output/dummy_runs"
+  split_path: null
+  cached_dataset_path: "data/dummy_image_cache"
+
+data:
+  image_size: 224
+  augment: true
+  norm_mode: "imagenet"
+  batch_size: 4
+  effective_batch: 4
+  num_workers: 0
+  val_frac: 0.2
+  test_frac: 0.1
+  split_on: "patient"
+  text_override_dir: "data/dummy_text_emb_cache"
+  use_text_override: true
+  text_override_mode: "sharded"
+  cls_override_dir: null
+  use_cls_override: false
+
+model:
+  vision_backbone: "resnet50"
+  d_model: 128
+  n_heads: 4
+  text_in_dim: 768
+  use_cls_heads: false
+
+train:
+  epochs: 1
+  freeze_backbone_epochs: 1
+  lr: 1.0e-4
+  warmup_steps: 5
+  log_every: 1
+  save_every_epochs: 1
+  bf16: false
+  device: "cpu"
+
+losses:
+  use_cls_loss: false
+  use_align_loss: true
+  concept_averaged_align: true
+  learnable_concept_taus: true
+
+strategy:
+  use_weighted_sampling: true
+  weighted_sampling_coverage_csv: null
+  weighted_sampling_cache_path: "output/dummy_runs/sample_weights.npy"

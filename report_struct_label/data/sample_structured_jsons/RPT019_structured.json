@@ -1,0 +1,44 @@
+{
+  "report_id": "RPT019",
+  "data": {
+    "examination": "Chest PA and lateral",
+    "clinical_information": "67-year-old female with chronic cough.",
+    "report_date": "",
+    "comparison": { "text": "Chest X-ray from 03/22/2025", "label": "present" },
+    "support_devices": {
+      "airway": { "text": "", "label": "not present" },
+      "gastric_tube": { "text": "", "label": "not present" },
+      "central_line": { "text": "", "label": "not present" },
+      "chest_drain": { "text": "", "label": "not present" },
+      "pacemaker": { "text": "", "label": "not present" },
+      "other": { "text": "No support devices", "label": "not present" }
+    },
+    "thoracic_organs": {
+      "heart": { "text": "Heart size is within normal limits", "label": 1 },
+      "mediastinum": { "text": "Mediastinum is unremarkable", "label": 1 }
+    },
+    "pathologies": {
+      "lung": {
+        "pneumonia": { "text": "", "label": 0 },
+        "atelectasis": { "text": "", "label": 0 },
+        "emphysema": { "text": "", "label": 0 },
+        "fibrosis": { "text": "", "label": 0 },
+        "mass": { "text": "A 1.5 cm well-circumscribed nodule is seen in the left lower lobe, new compared to prior study", "label": 2 }
+      },
+      "pleura": {
+        "pneumothorax": { "text": "No pneumothorax", "label": 1 },
+        "pleural_effusion": { "text": "No pleural effusion", "label": 1 }
+      },
+      "vessels": {
+        "congestion": { "text": "No pulmonary congestion or edema", "label": 1 },
+        "pulmonary_edema": { "text": "No pulmonary congestion or edema", "label": 1 }
+      },
+      "bones": {
+        "fracture": { "text": "Bony thorax intact without fracture", "label": 1 },
+        "other": { "text": "No degenerative changes", "label": 1 }
+      }
+    },
+    "other_findings": "",
+    "impression": "1. New 1.5 cm left lower lobe pulmonary nodule. CT recommended for further characterization. 2. No other acute cardiopulmonary abnormality."
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "_meta": "Small English clinical-sentence DB for the dummy concept-retrieval demo. Not clinically curated.",
+  "concept_texts": {
+    "support_devices.airway": ["Endotracheal tube in good position.", "Tracheostomy tube projects over the trachea.", "No endotracheal tube is seen."],
+    "support_devices.gastric_tube": ["Nasogastric tube with tip in the stomach.", "Feeding tube courses below the diaphragm.", "No gastric tube is present."],
+    "support_devices.central_line": ["Right internal jugular central venous catheter tip in the SVC.", "Left subclavian line terminates at the cavoatrial junction.", "No central venous catheter is present."],
+    "support_devices.chest_drain": ["Right basal chest drain in place.", "Left apical chest tube without residual pneumothorax.", "No chest drain is seen."],
+    "support_devices.pacemaker": ["Dual-lead pacemaker with leads in the right atrium and ventricle.", "Left pectoral pacemaker generator projects over the chest wall.", "No pacemaker is present."],
+    "support_devices.other": ["Sternotomy wires are intact.", "Surgical clips project over the mediastinum.", "No additional support devices are seen."],
+    "thoracic_organs.heart": ["The cardiac silhouette is enlarged.", "Heart size is within normal limits.", "Cardiomegaly is present."],
+    "thoracic_organs.mediastinum": ["The mediastinum is widened.", "Mediastinal contours are unremarkable.", "Enlarged cardiomediastinal silhouette."],
+    "pathologies.lung.pneumonia": ["Right lower lobe consolidation consistent with pneumonia.", "Patchy airspace opacity suggesting infection.", "No focal consolidation."],
+    "pathologies.lung.atelectasis": ["Bibasilar atelectasis.", "Left basal linear atelectasis.", "No atelectasis is seen."],
+    "pathologies.lung.emphysema": ["Hyperinflated lungs with emphysematous changes.", "Upper lobe predominant emphysema.", "No emphysema."],
+    "pathologies.lung.fibrosis": ["Basal reticulation consistent with pulmonary fibrosis.", "Interstitial fibrotic changes.", "No fibrosis is seen."],
+    "pathologies.lung.mass": ["A spiculated mass in the right upper lobe.", "Pulmonary nodule projecting over the left lung.", "No pulmonary mass or nodule."],
+    "pathologies.pleura.pneumothorax": ["Small right apical pneumothorax.", "Large left pneumothorax with lung collapse.", "No pneumothorax."],
+    "pathologies.pleura.pleural_effusion": ["Moderate left pleural effusion.", "Blunting of the costophrenic angle from effusion.", "No pleural effusion."],
+    "pathologies.vessels.congestion": ["Pulmonary vascular congestion.", "Cephalization of the pulmonary vessels.", "No vascular congestion."],
+    "pathologies.vessels.pulmonary_edema": ["Interstitial pulmonary edema.", "Diffuse airspace edema.", "No pulmonary edema."],
+    "pathologies.bones.fracture": ["Acute right rib fracture.", "Displaced clavicular fracture.", "No acute fracture."],
+    "pathologies.bones.other": ["Degenerative changes of the thoracic spine.", "Old healed rib fractures.", "No additional osseous abnormality."]
+  }
+}

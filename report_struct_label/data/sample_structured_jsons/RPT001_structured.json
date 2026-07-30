@@ -1,0 +1,44 @@
+{
+  "report_id": "RPT001",
+  "data": {
+    "examination": "Chest PA and lateral",
+    "clinical_information": "68-year-old male with shortness of breath. Rule out pneumonia.",
+    "report_date": "",
+    "comparison": { "text": "", "label": "not present" },
+    "support_devices": {
+      "airway": { "text": "", "label": "not present" },
+      "gastric_tube": { "text": "", "label": "not present" },
+      "central_line": { "text": "A left subclavian central venous catheter is in place with tip in the SVC", "label": "present" },
+      "chest_drain": { "text": "", "label": "not present" },
+      "pacemaker": { "text": "", "label": "not present" },
+      "other": { "text": "No other support devices", "label": "not present" }
+    },
+    "thoracic_organs": {
+      "heart": { "text": "Heart size is mildly enlarged", "label": 3 },
+      "mediastinum": { "text": "The mediastinum is unremarkable", "label": 1 }
+    },
+    "pathologies": {
+      "lung": {
+        "pneumonia": { "text": "basilar opacity, likely representing atelectasis versus pneumonic infiltrate", "label": 2 },
+        "atelectasis": { "text": "basilar opacity, likely representing atelectasis", "label": 2 },
+        "emphysema": { "text": "", "label": 0 },
+        "fibrosis": { "text": "", "label": 0 },
+        "mass": { "text": "", "label": 0 }
+      },
+      "pleura": {
+        "pneumothorax": { "text": "No pneumothorax", "label": 1 },
+        "pleural_effusion": { "text": "left-sided pleural effusion", "label": 3 }
+      },
+      "vessels": {
+        "congestion": { "text": "", "label": 0 },
+        "pulmonary_edema": { "text": "No pulmonary edema", "label": 1 }
+      },
+      "bones": {
+        "fracture": { "text": "Osseous structures are intact without fracture", "label": 1 },
+        "other": { "text": "", "label": 0 }
+      }
+    },
+    "other_findings": "",
+    "impression": "1. Cardiomegaly. 2. Left pleural effusion with left basilar opacity, differential includes atelectasis and pneumonia. 3. Left subclavian CVC in satisfactory position."
+  }
+}

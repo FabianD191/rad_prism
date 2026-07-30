@@ -1,0 +1,44 @@
+{
+  "report_id": "RPT010",
+  "data": {
+    "examination": "Chest portable AP",
+    "clinical_information": "80-year-old female with acute decompensated heart failure.",
+    "report_date": "",
+    "comparison": { "text": "", "label": "not present" },
+    "support_devices": {
+      "airway": { "text": "", "label": "not present" },
+      "gastric_tube": { "text": "", "label": "not present" },
+      "central_line": { "text": "A right subclavian central venous catheter is in place", "label": "present" },
+      "chest_drain": { "text": "", "label": "not present" },
+      "pacemaker": { "text": "", "label": "not present" },
+      "other": { "text": "", "label": "not present" }
+    },
+    "thoracic_organs": {
+      "heart": { "text": "Heart is markedly enlarged", "label": 3 },
+      "mediastinum": { "text": "Mediastinum is widened", "label": 2 }
+    },
+    "pathologies": {
+      "lung": {
+        "pneumonia": { "text": "", "label": 0 },
+        "atelectasis": { "text": "Bilateral basal atelectasis", "label": 3 },
+        "emphysema": { "text": "", "label": 0 },
+        "fibrosis": { "text": "", "label": 0 },
+        "mass": { "text": "", "label": 0 }
+      },
+      "pleura": {
+        "pneumothorax": { "text": "No pneumothorax", "label": 1 },
+        "pleural_effusion": { "text": "Bilateral pleural effusions, moderate on the right, small on the left", "label": 3 }
+      },
+      "vessels": {
+        "congestion": { "text": "Bilateral pulmonary congestion with prominent cephalization of vessels", "label": 3 },
+        "pulmonary_edema": { "text": "Bilateral perihilar alveolar opacities suggestive of pulmonary edema", "label": 3 }
+      },
+      "bones": {
+        "fracture": { "text": "No acute fracture", "label": 1 },
+        "other": { "text": "", "label": 0 }
+      }
+    },
+    "other_findings": "",
+    "impression": "1. Marked cardiomegaly. 2. Pulmonary edema with bilateral pleural effusions. 3. Bilateral basal atelectasis. 4. Right subclavian central line in place."
+  }
+}

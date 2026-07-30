@@ -1,0 +1,33 @@
+# ============================================================================
+# Configuration for run_inference_demo.py
+# ============================================================================
+# Apply the provided RadPRISM checkpoint to chest X-ray images and save
+# attention overlays, thresholded classification predictions, and top-k English
+# text retrievals.
+
+device: "cpu"                       # or "cuda:0"
+
+# Checkpoint artifacts (shipped in data/radprism_checkpoint/).
+checkpoint_dir: "data/radprism_checkpoint"
+config_name: "radprism_config.json"
+heads_name: "radprism_heads.safetensors"
+thresholds_name: "radprism_val_thresholds.json"
+threshold_key: "thr_j"              # thr_j (Youden) or thr_f1
+retrieval_bank_name: "retrieval_bank.pt"   # produced by utils/embed_radprism_text_db.py
+
+# RAD-DINO-MAIRA-2 backbone (downloaded from HuggingFace; not shipped).
+rad_dino_model_dir: "/path/to/rad-dino-maira-2"
+
+# Input images (the dummy JPGs by default).
+image_glob: ["data/jpg/*.jpg"]
+max_images: null
+
+# Outputs
+output_dir: "output/inference_demo"
+do_overlays: true
+overlay_concepts: null              # null -> all concepts; or a list of concept names
+overlay_alpha: 0.5                  # heatmap transparency
+overlay_vmax: null                  # null -> per-map autoscale; e.g. 0.1 for a fixed comparable scale
+overlay_cmap: null                  # null -> matplotlib default (viridis); e.g. "jet"
+do_retrieval: true
+retrieval_top_k: 3

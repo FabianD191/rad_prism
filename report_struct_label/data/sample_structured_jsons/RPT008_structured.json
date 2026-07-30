@@ -1,0 +1,44 @@
+{
+  "report_id": "RPT008",
+  "data": {
+    "examination": "Chest PA",
+    "clinical_information": "62-year-old male, follow-up known pulmonary fibrosis.",
+    "report_date": "",
+    "comparison": { "text": "Chest X-ray from 09/10/2024", "label": "present" },
+    "support_devices": {
+      "airway": { "text": "", "label": "not present" },
+      "gastric_tube": { "text": "", "label": "not present" },
+      "central_line": { "text": "", "label": "not present" },
+      "chest_drain": { "text": "", "label": "not present" },
+      "pacemaker": { "text": "A dual-chamber pacemaker is in place, unchanged", "label": "present" },
+      "other": { "text": "", "label": "not present" }
+    },
+    "thoracic_organs": {
+      "heart": { "text": "Heart size is mildly enlarged", "label": 3 },
+      "mediastinum": { "text": "Mediastinum is unremarkable", "label": 1 }
+    },
+    "pathologies": {
+      "lung": {
+        "pneumonia": { "text": "No new consolidation", "label": 1 },
+        "atelectasis": { "text": "", "label": 0 },
+        "emphysema": { "text": "", "label": 0 },
+        "fibrosis": { "text": "Bilateral basal reticular opacities with honeycombing pattern, consistent with known pulmonary fibrosis, stable", "label": 3 },
+        "mass": { "text": "", "label": 0 }
+      },
+      "pleura": {
+        "pneumothorax": { "text": "No pneumothorax", "label": 1 },
+        "pleural_effusion": { "text": "No pleural effusion", "label": 1 }
+      },
+      "vessels": {
+        "congestion": { "text": "No pulmonary congestion", "label": 1 },
+        "pulmonary_edema": { "text": "", "label": 0 }
+      },
+      "bones": {
+        "fracture": { "text": "No acute osseous abnormality", "label": 1 },
+        "other": { "text": "", "label": 0 }
+      }
+    },
+    "other_findings": "",
+    "impression": "1. Stable bilateral pulmonary fibrosis. 2. Mild cardiomegaly, unchanged. 3. Pacemaker in stable position."
+  }
+}

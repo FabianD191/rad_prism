@@ -1,0 +1,72 @@
+# ============================================================================
+# Configuration for train_run_finetune_cls.py
+# ============================================================================
+# Fine-tunes the per-concept classification heads on top of a frozen,
+# alignment-pretrained model.
+#
+# Most architecture/data settings are INHERITED from the pretrained run's
+# config.json (pointed to by pretrain.config_path). Only set keys in the `paths`
+# and `data` sections below to OVERRIDE the inherited values; leave them out (or
+# null) to inherit. `train` and `losses` are full configs for this stage.
+#
+# A few options can also be overridden on the command line:
+#   --device --epochs --seed --run-dir --ckpt-path --config-path
+
+# ── Pretrained run to fine-tune from ────────────────────────────────────────
+pretrain:
+  ckpt_path: "/path/to/pretrain_run/best_align.pt"     # pretrained checkpoint
+  config_path: "/path/to/pretrain_run/config.json"     # its config.json
+  reset_cls_heads: true                                 # re-init the cls heads
+
+# ── Output + optional path overrides (null = inherit from the pretrained run) ─
+paths:
+  run_dir: "output/finetune_runs"
+  master_index_path: null
+  embedding_dir: null
+  label_dir: null
+  split_path: null            # reuse the pretraining split for a fair comparison
+  cached_dataset_path: null
+
+# ── Optional data overrides (null = inherit) ────────────────────────────────
+data:
+  batch_size: null
+  num_workers: null
+  augment: null
+  # Classification labels are required for fine-tuning: point these at the
+  # structured-label store if not already set in the pretrained config.
+  cls_override_dir: null
+  use_cls_override: null
+
+# ── Optimization ────────────────────────────────────────────────────────────
+train:
+  epochs: 14
+  lr: 5.0e-4
+  weight_decay: 1.0e-4
+  warmup_steps: 1000
+  log_every: 10
+  save_every_epochs: 100
+  bf16: true
+  device: "cuda:0"
+  clip_grad_norm: 1.0
+  seed: 1337
+  seed_list: []               # non-empty -> one child process per seed
+
+# ── Loss / positive-class weighting ─────────────────────────────────────────
+losses:
+  w_cls: 1.0
+  use_concept_balanced_reduction: true
+
+  # Positive-weight source (checked in order): class_stats_path -> pos_weight_path
+  # -> computed from the training set.
+  class_stats_path: null      # CSV with per-concept n_samples_positive/negative
+  class_stats_split: "train"
+  class_stats_use_accessions: false
+  pos_weight_path: null
+
+  # Temper the pos-weights: w_c -> w_c ** gamma (gamma < 1 softens extremes).
+  use_tempered_pos_weight: true
+  tempered_pos_weight_gamma: 0.7
+  tempered_prior_smoothing_alpha: 0.0
+  tempered_global_pos_prior: null
+
+  max_pos_weight: 0.0         # clip pos-weights to this max (0 = no clipping)

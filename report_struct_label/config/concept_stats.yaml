@@ -1,0 +1,25 @@
+# ============================================================================
+# Configuration for extract_concept_stats.py
+# ============================================================================
+# Extracts per-concept text and label statistics from embedding/label shards.
+# The output concept_stats.csv can be used for abundance-balanced imputation.
+# CLI arguments override values set here.
+
+# ── Input directories ──
+# Point these at embedding/label output dirs BEFORE imputation was applied,
+# so the stats reflect natural (non-imputed) text/label occurrence counts.
+text_emb_dir: "output/embeddings_qwen3"   # directory with meta_*.parquet from embedding
+label_dir: "output/binary_labels"         # directory with labels/masks/meta shards
+
+# ── Concepts ──
+concepts_file: "templates/concepts.txt"
+
+# ── Optional split file ──
+# CSV or parquet with report_id and split columns.
+# If omitted, all reports are grouped into a single "all" split.
+# split_file: "data/splits.csv"
+# report_id_column: "report_id"
+# split_column: "split"
+
+# ── Output ──
+out_dir: "output/concept_stats"

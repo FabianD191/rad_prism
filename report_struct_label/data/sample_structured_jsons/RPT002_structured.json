@@ -1,0 +1,44 @@
+{
+  "report_id": "RPT002",
+  "data": {
+    "examination": "Chest portable AP",
+    "clinical_information": "Post-intubation check.",
+    "report_date": "",
+    "comparison": { "text": "", "label": "not present" },
+    "support_devices": {
+      "airway": { "text": "An endotracheal tube is present with tip approximately 4 cm above the carina, in satisfactory position", "label": "present" },
+      "gastric_tube": { "text": "A nasogastric tube is seen with tip in the stomach", "label": "present" },
+      "central_line": { "text": "", "label": "not present" },
+      "chest_drain": { "text": "", "label": "not present" },
+      "pacemaker": { "text": "", "label": "not present" },
+      "other": { "text": "", "label": "not present" }
+    },
+    "thoracic_organs": {
+      "heart": { "text": "Heart size is normal", "label": 1 },
+      "mediastinum": { "text": "", "label": 0 }
+    },
+    "pathologies": {
+      "lung": {
+        "pneumonia": { "text": "Lungs are clear", "label": 1 },
+        "atelectasis": { "text": "", "label": 0 },
+        "emphysema": { "text": "", "label": 0 },
+        "fibrosis": { "text": "", "label": 0 },
+        "mass": { "text": "", "label": 0 }
+      },
+      "pleura": {
+        "pneumothorax": { "text": "No pneumothorax", "label": 1 },
+        "pleural_effusion": { "text": "Costophrenic angles are clear", "label": 1 }
+      },
+      "vessels": {
+        "congestion": { "text": "", "label": 0 },
+        "pulmonary_edema": { "text": "", "label": 0 }
+      },
+      "bones": {
+        "fracture": { "text": "No acute osseous abnormality", "label": 1 },
+        "other": { "text": "", "label": 0 }
+      }
+    },
+    "other_findings": "",
+    "impression": "Endotracheal tube and NG tube in satisfactory position. No acute cardiopulmonary process."
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "report_id": "RPT014",
+  "data": {
+    "examination": "Chest PA and lateral",
+    "clinical_information": "65-year-old female with dyspnea on exertion and bilateral leg edema.",
+    "report_date": "",
+    "comparison": { "text": "", "label": "not present" },
+    "support_devices": {
+      "airway": { "text": "", "label": "not present" },
+      "gastric_tube": { "text": "", "label": "not present" },
+      "central_line": { "text": "", "label": "not present" },
+      "chest_drain": { "text": "", "label": "not present" },
+      "pacemaker": { "text": "", "label": "not present" },
+      "other": { "text": "No support devices", "label": "not present" }
+    },
+    "thoracic_organs": {
+      "heart": { "text": "Heart is markedly enlarged", "label": 3 },
+      "mediastinum": { "text": "The mediastinum is unremarkable", "label": 1 }
+    },
+    "pathologies": {
+      "lung": {
+        "pneumonia": { "text": "No focal consolidation", "label": 1 },
+        "atelectasis": { "text": "", "label": 0 },
+        "emphysema": { "text": "", "label": 0 },
+        "fibrosis": { "text": "", "label": 0 },
+        "mass": { "text": "No mass lesion", "label": 1 }
+      },
+      "pleura": {
+        "pneumothorax": { "text": "No pneumothorax", "label": 1 },
+        "pleural_effusion": { "text": "Bilateral pleural effusions, moderate", "label": 3 }
+      },
+      "vessels": {
+        "congestion": { "text": "Pulmonary vascular congestion with cephalization", "label": 3 },
+        "pulmonary_edema": { "text": "No overt pulmonary edema", "label": 1 }
+      },
+      "bones": {
+        "fracture": { "text": "Mild compression fracture of T12, appears chronic", "label": 3 },
+        "other": { "text": "Mild degenerative changes of the spine", "label": 2 }
+      }
+    },
+    "other_findings": "",
+    "impression": "1. Marked cardiomegaly with pulmonary venous congestion and bilateral pleural effusions, suggestive of congestive heart failure. 2. Chronic T12 compression fracture. 3. No pneumonia."
+  }
+}

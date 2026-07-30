@@ -1,0 +1,73 @@
+# ============================================================================
+# Configuration for evaluate_chexlocalize.py (external CheXpert / CheXlocalize)
+# ============================================================================
+# Requires the CheXpert images + label CSVs and the CheXlocalize GT segmentation
+# JSONs (downloaded separately). Stage 1 (classify) saves attention maps that
+# stage 2 (localize) consumes, so keep both enabled for a full run.
+
+model:
+  run_dir: "/path/to/finetune_run"
+  checkpoint_name: "best_cls.pt"
+  device: "cuda:0"
+  use_parent_pretrain_config: true
+  parent_pretrain_config_path: null
+  norm_mode: null            # null -> use the run's data.norm_mode
+
+modes:
+  classify: true             # classification + retrieval + save attention maps
+  localize: true             # attention-vs-GT-segmentation grounding metrics
+
+chexpert_root: "/path/to/CheXlocalize/CheXpert"
+
+# Text-embedding backend used only when classify.retrieve is true.
+text_embedding:
+  backend: "hash"            # sentence_transformer | auto_model | hash
+  model_dir: null
+  truncate_dim: 768
+
+classify:
+  splits: ["val", "test"]
+  labels_csv_by_split:
+    val: "/path/to/CheXlocalize/CheXpert/val_labels.csv"
+    test: "/path/to/CheXlocalize/CheXpert/test_labels.csv"
+  image_size: 518
+  keep_aspect_ratio: true
+  pad_value: 0.0
+  resize_resample: "bilinear"
+  view_filter: "all"         # all | frontal | lateral
+  max_images_per_split: null
+  # Thresholds from the internal eval (val_thresholds.json), else default_threshold.
+  concept_thresholds_json: null
+  threshold_key: "thr_f1"
+  default_threshold: 0.5
+  # Concept-wise retrieval (optional)
+  retrieve: false
+  custom_text_db_path: null
+  retrieval_top_k: 3
+
+localize:
+  # Directory holding stage-1 attention maps; null -> this run's output_dir.
+  chexpert_eval_dir: null
+  gt_seg_json_by_split:
+    val: "/path/to/CheXlocalize/CheXlocalize/gt_segmentations_val.json"
+    test: "/path/to/CheXlocalize/CheXlocalize/gt_segmentations_test.json"
+  splits: ["val", "test"]
+  model_input_size: 518
+  eval_region: "full_canvas"          # full_canvas | non_padded
+  attention_normalization: "minmax_eval_region"   # minmax_eval_region | sum_to_one_eval_region | none
+  attention_mask_method: "percentile" # topk_gt_area | fixed_threshold | percentile
+  attention_fixed_threshold: 0.5
+  attention_percentile: 98.0
+  filter_gt_positive_only: true
+  filter_pred_positive_only: false
+  max_cases_per_target_per_split: null
+  seed: 42
+  # Optional: optimize the attention threshold on one split, apply to another.
+  optimized_threshold_mode: false
+  optimized_threshold_source_split: "val"
+  optimized_threshold_apply_split: "test"
+  optimized_threshold_search_min: 0.0
+  optimized_threshold_search_max: 1.0
+  optimized_threshold_search_step: 0.01
+
+output_dir: null              # null -> <run_dir>/eval_chexlocalize/<timestamp>

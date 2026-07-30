@@ -1,0 +1,44 @@
+{
+  "report_id": "RPT011",
+  "data": {
+    "examination": "Chest PA",
+    "clinical_information": "50-year-old male with incidental finding on CT. Follow-up chest X-ray.",
+    "report_date": "",
+    "comparison": { "text": "", "label": "not present" },
+    "support_devices": {
+      "airway": { "text": "", "label": "not present" },
+      "gastric_tube": { "text": "", "label": "not present" },
+      "central_line": { "text": "", "label": "not present" },
+      "chest_drain": { "text": "", "label": "not present" },
+      "pacemaker": { "text": "", "label": "not present" },
+      "other": { "text": "No support devices", "label": "not present" }
+    },
+    "thoracic_organs": {
+      "heart": { "text": "Heart size is normal", "label": 1 },
+      "mediastinum": { "text": "Mediastinum is unremarkable", "label": 1 }
+    },
+    "pathologies": {
+      "lung": {
+        "pneumonia": { "text": "", "label": 0 },
+        "atelectasis": { "text": "", "label": 0 },
+        "emphysema": { "text": "", "label": 0 },
+        "fibrosis": { "text": "", "label": 0 },
+        "mass": { "text": "A spiculated 2.5 cm mass is seen in the right upper lobe, suspicious for malignancy", "label": 3 }
+      },
+      "pleura": {
+        "pneumothorax": { "text": "No pneumothorax", "label": 1 },
+        "pleural_effusion": { "text": "No pleural effusion", "label": 1 }
+      },
+      "vessels": {
+        "congestion": { "text": "No pulmonary congestion or edema", "label": 1 },
+        "pulmonary_edema": { "text": "No pulmonary congestion or edema", "label": 1 }
+      },
+      "bones": {
+        "fracture": { "text": "Bony thorax is intact without lytic or blastic lesions", "label": 1 },
+        "other": { "text": "", "label": 0 }
+      }
+    },
+    "other_findings": "",
+    "impression": "1. Suspicious 2.5 cm spiculated right upper lobe mass. CT correlation and biopsy recommended. 2. No other acute cardiopulmonary findings."
+  }
+}

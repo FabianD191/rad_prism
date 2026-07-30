@@ -1,0 +1,78 @@
+{
+  "support_devices.airway": {
+    "thr_f1": 0.873,
+    "thr_j": 0.275
+  },
+  "support_devices.gastric_tube": {
+    "thr_f1": 0.932,
+    "thr_j": 0.11
+  },
+  "support_devices.central_line": {
+    "thr_f1": 0.678,
+    "thr_j": 0.41300000000000003
+  },
+  "support_devices.chest_drain": {
+    "thr_f1": 0.767,
+    "thr_j": 0.246
+  },
+  "support_devices.pacemaker": {
+    "thr_f1": 0.888,
+    "thr_j": 0.196
+  },
+  "support_devices.other": {
+    "thr_f1": 0.623,
+    "thr_j": 0.298
+  },
+  "thoracic_organs.heart": {
+    "thr_f1": 0.463,
+    "thr_j": 0.463
+  },
+  "thoracic_organs.mediastinum": {
+    "thr_f1": 0.402,
+    "thr_j": 0.431
+  },
+  "pathologies.lung.pneumonia": {
+    "thr_f1": 0.546,
+    "thr_j": 0.319
+  },
+  "pathologies.lung.atelectasis": {
+    "thr_f1": 0.361,
+    "thr_j": 0.546
+  },
+  "pathologies.lung.emphysema": {
+    "thr_f1": 0.265,
+    "thr_j": 0.544
+  },
+  "pathologies.lung.fibrosis": {
+    "thr_f1": 0.197,
+    "thr_j": 0.426
+  },
+  "pathologies.lung.mass": {
+    "thr_f1": 0.34500000000000003,
+    "thr_j": 0.42
+  },
+  "pathologies.pleura.pneumothorax": {
+    "thr_f1": 0.6900000000000001,
+    "thr_j": 0.278
+  },
+  "pathologies.pleura.pleural_effusion": {
+    "thr_f1": 0.523,
+    "thr_j": 0.396
+  },
+  "pathologies.vessels.congestion": {
+    "thr_f1": 0.498,
+    "thr_j": 0.306
+  },
+  "pathologies.vessels.pulmonary_edema": {
+    "thr_f1": 0.742,
+    "thr_j": 0.14400000000000002
+  },
+  "pathologies.bones.fracture": {
+    "thr_f1": 0.435,
+    "thr_j": 0.333
+  },
+  "pathologies.bones.other": {
+    "thr_f1": 0.17500000000000002,
+    "thr_j": 0.586
+  }
+}

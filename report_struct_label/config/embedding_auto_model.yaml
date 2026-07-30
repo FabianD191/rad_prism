@@ -1,0 +1,55 @@
+# ============================================================================
+# Configuration for embed_structured_reports.py — AutoModel backend
+# ============================================================================
+# Example: medBERT.de or similar HuggingFace model with manual pooling
+# CLI arguments override values set here.
+
+# ── Model ──
+model_backend: "auto_model"
+model_dir: "/path/to/medbert-512"
+device: "cuda:0"
+precision: "float16"
+pooling: "mean"                     # "mean" or "cls"
+
+# ── Input data ──
+reports_csv: "data/sample_reports.csv"
+report_id_column: "report_id"
+json_dir: "data/sample_structured_jsons"
+neg_sampling_path: "templates/neg_entry_sampling.json"
+
+# ── JSON file naming ──
+json_filename_template: "{report_id}_structured.json"
+# json_fallback_glob: "{report_id}*.json"
+
+# ── Output ──
+out_dir: "output/embeddings_medbert"
+shard_size: 50000
+
+# ── What to embed ──
+embed_level: "both"                 # "leaf", "full", or "both"
+exclude_fields: "structured.report_date,structured.comparison"
+store_text: true
+
+# ── Embedding parameters ──
+batch_size: 16
+max_length: 512
+overflow_strategy: "window_mean"
+stride: 128
+
+# ── Imputation controls ──
+# disable_therapiehilfen_imputation: false
+# disable_pathologien_imputation: false
+pathologien_valid_threshold_pct: 15.0
+pathologien_min_other_fields: 1
+sampling_seed: 42
+
+# ── Abundance balance (optional) ──
+# Limits imputed samples per concept to match natural text occurrence counts.
+# Enable by uncommenting concept_stats_csv below.
+concept_stats_csv: "data/concept_stats.csv"
+abundance_count_column: "n_samples_with_text"
+# disable_abundance_balance: false
+
+# ── Resume ──
+resume: false
+resume_mode: "last_shard"

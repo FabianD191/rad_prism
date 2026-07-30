@@ -1,0 +1,111 @@
+# ============================================================================
+# Configuration for llm_consistency_check.py
+# ============================================================================
+# Optional post-processing: an LLM assesses, per concept, whether the binary
+# classification decision is consistent with the top retrieved text, and
+# (optionally) proposes a cleaned final text. Runs over the per-case outputs of
+# run_inference_demo.py (or the evaluation scripts).
+#
+# Use --dry-run to build and inspect the payload/schema/messages WITHOUT calling
+# an LLM (no endpoint needed). A real run needs an OpenAI-compatible endpoint.
+
+# ── LLM endpoint (OpenAI-compatible) ──
+api:
+  api_base: "http://your-llm-endpoint:port"
+  api_key: ""                          # or set the OPENAI_API_KEY env var
+  model_name: "your-model-name"
+
+# ── Inputs ──
+inputs:
+  # Thresholds used to binarize the probabilities (checkpoint's cleaned file).
+  thresholds_json: "data/radprism_checkpoint/radprism_val_thresholds.json"
+  threshold_key: "thr_j"               # thr_j (Youden) or thr_f1
+  allow_threshold_fallback: false
+  fallback_threshold_keys: ["thr_f1", "thr_j"]
+  default_threshold: 0.5
+  retrieval_rank_to_use: 1             # use the top-1 retrieved snippet per concept
+  # Per-case filenames written by the inference demo / evaluation scripts.
+  concept_predictions_filename: "classification.csv"
+  retrieval_filename: "retrieval_top_matches.csv"
+
+# ── Prompting ──
+prompting:
+  output_language: "en"
+  retrieved_text_language: "en"
+  # The consistency assessment is always produced; the final cleaned-text
+  # proposal is optional (set false for consistency-only).
+  produce_final_text_proposal: true
+  # Per-concept override applied ONLY when a concept is judged inconsistent:
+  # "binary_cls_label" -> base the final text on the label; "retrieved_text" -> on the text.
+  inconsistency_priority_by_concept:
+    support_devices.airway: "binary_cls_label"
+    support_devices.gastric_tube: "binary_cls_label"
+    support_devices.chest_drain: "binary_cls_label"
+    support_devices.other: "binary_cls_label"
+    pathologies.lung.emphysema: "binary_cls_label"
+  auto_build_overall_feedback: true
+
+  # ── Prompt instructions (edit freely) ──────────────────────────────────────
+  # These are the exact instructions sent to the LLM. They have identical defaults
+  # in the script, so you may delete any of them here to fall back to the default;
+  # keep them to customize the wording, add rules, change the clinical style, etc.
+  system_prompt: >-
+    You are a concept-level consistency assessment assistant for chest X-ray
+    findings. Return ONLY valid JSON that strictly follows the provided schema.
+    No markdown, no explanations, no extra keys.
+  task_instruction: >-
+    For each concept, compare the binary classification decision with the meaning
+    of the provided initial retrieved text snippet, and assign cls_text_consistency
+    as consistent, inconsistent, or uncertain. If the initial_retrieved_text
+    contains uncertain phrasing (e.g. 'cannot be excluded', 'suspicion of',
+    'possibly', 'unclear', 'uncertain', 'not clearly assessable') or is otherwise
+    ambiguous, use cls_text_consistency='uncertain'. Also use 'uncertain' when the
+    retrieved text does not make sense for a chest X-ray report (e.g. describes
+    findings outside the thorax such as head, legs, or pelvis) or clearly belongs
+    to a different concept than the one it is attached to.
+  concept_semantics_instruction: >-
+    binary_cls_label is already semantically resolved: 'present/not present' for
+    support_devices and 'pathological/not pathological' for all other concepts.
+  output_field_instruction: >-
+    For every concept leaf, fill these fields: binary_cls_label,
+    initial_retrieved_text, cls_text_consistency, consistency_feedback (and
+    final_text_proposal when requested). binary_cls_label and
+    initial_retrieved_text must be copied exactly from the input.
+  # Used only when produce_final_text_proposal is true.
+  additional_user_instructions: >-
+    Use concise medical-style phrasing for final_text_proposal, based as closely as
+    possible on initial_retrieved_text to keep it detailed. If the text contains
+    comparative/temporal wording (e.g. 'still', 'known', 'compared to prior',
+    'increasing', 'regressing', 'removed', 'explanted', or any date), reformulate it
+    into a current-time statement without such wording. General pattern, e.g.:
+    '<support device> removed on DD.MM.YYYY' => '<support device> not present';
+    'Known <finding> still present' => '<finding> present'. The final_text_proposal
+    must contain NO comparative/temporal wording. Keep consistency_feedback short
+    and specific. If evidence is inconsistent, still base the final_text_proposal on
+    the initial_retrieved_text unless overridden in inconsistency_priority_by_concept.
+
+# ── LLM request settings ──
+llm:
+  use_json_schema: true                # guided JSON generation (strict schema)
+  fallback_to_json_object_on_400: false
+  temperature: 0.0
+  max_tokens: 5500
+  timeout_s: 600.0
+  max_retries: 5
+
+# ── Output ──
+output:
+  write_artifacts: true
+  output_dir: "output/llm_consistency"   # used only in single-case mode
+
+# ── Batch mode: process every case folder under root_dir ──
+batch:
+  enabled: true
+  root_dir: "output/inference_demo"      # per-image folders from the inference demo
+  per_case_output_subdir: "llm_consistency"
+  max_cases: 0                           # 0 => all discovered cases
+  continue_on_error: true
+
+runtime:
+  verbose: true
+  dry_run: false

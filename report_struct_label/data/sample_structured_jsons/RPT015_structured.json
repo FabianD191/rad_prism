@@ -1,0 +1,44 @@
+{
+  "report_id": "RPT015",
+  "data": {
+    "examination": "Chest portable AP",
+    "clinical_information": "28-year-old male, motor vehicle accident, trauma evaluation.",
+    "report_date": "",
+    "comparison": { "text": "", "label": "not present" },
+    "support_devices": {
+      "airway": { "text": "An endotracheal tube is in place, tip 5 cm above carina", "label": "present" },
+      "gastric_tube": { "text": "", "label": "not present" },
+      "central_line": { "text": "A right subclavian central venous catheter is present", "label": "present" },
+      "chest_drain": { "text": "A right-sided chest drain is noted", "label": "present" },
+      "pacemaker": { "text": "", "label": "not present" },
+      "other": { "text": "", "label": "not present" }
+    },
+    "thoracic_organs": {
+      "heart": { "text": "Heart size is normal", "label": 1 },
+      "mediastinum": { "text": "Mediastinum is unremarkable without widening", "label": 1 }
+    },
+    "pathologies": {
+      "lung": {
+        "pneumonia": { "text": "", "label": 0 },
+        "atelectasis": { "text": "", "label": 0 },
+        "emphysema": { "text": "", "label": 0 },
+        "fibrosis": { "text": "", "label": 0 },
+        "mass": { "text": "", "label": 0 }
+      },
+      "pleura": {
+        "pneumothorax": { "text": "Small right pneumothorax", "label": 3 },
+        "pleural_effusion": { "text": "No pleural effusion", "label": 1 }
+      },
+      "vessels": {
+        "congestion": { "text": "", "label": 0 },
+        "pulmonary_edema": { "text": "", "label": 0 }
+      },
+      "bones": {
+        "fracture": { "text": "Multiple right-sided rib fractures involving ribs 4 through 7", "label": 3 },
+        "other": { "text": "", "label": 0 }
+      }
+    },
+    "other_findings": "Bilateral pulmonary contusions, predominantly in the right middle and lower lobes.",
+    "impression": "1. Bilateral pulmonary contusions, worse on the right. 2. Small right pneumothorax. 3. Multiple right rib fractures (4th through 7th). 4. Lines and tubes in satisfactory position."
+  }
+}

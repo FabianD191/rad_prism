@@ -1,0 +1,62 @@
+{
+  "align_concept_names": [
+    "support_devices.airway",
+    "support_devices.gastric_tube",
+    "support_devices.central_line",
+    "support_devices.chest_drain",
+    "support_devices.pacemaker",
+    "support_devices.other",
+    "thoracic_organs.heart",
+    "thoracic_organs.mediastinum",
+    "pathologies.lung.pneumonia",
+    "pathologies.lung.atelectasis",
+    "pathologies.lung.emphysema",
+    "pathologies.lung.fibrosis",
+    "pathologies.lung.mass",
+    "pathologies.pleura.pneumothorax",
+    "pathologies.pleura.pleural_effusion",
+    "pathologies.vessels.congestion",
+    "pathologies.vessels.pulmonary_edema",
+    "pathologies.bones.fracture",
+    "pathologies.bones.other"
+  ],
+  "cls_concept_names": [
+    "support_devices.airway",
+    "support_devices.gastric_tube",
+    "support_devices.central_line",
+    "support_devices.chest_drain",
+    "support_devices.pacemaker",
+    "support_devices.other",
+    "thoracic_organs.heart",
+    "thoracic_organs.mediastinum",
+    "pathologies.lung.pneumonia",
+    "pathologies.lung.atelectasis",
+    "pathologies.lung.emphysema",
+    "pathologies.lung.fibrosis",
+    "pathologies.lung.mass",
+    "pathologies.pleura.pneumothorax",
+    "pathologies.pleura.pleural_effusion",
+    "pathologies.vessels.congestion",
+    "pathologies.vessels.pulmonary_edema",
+    "pathologies.bones.fracture",
+    "pathologies.bones.other"
+  ],
+  "cls_head_map": null,
+  "model": {
+    "d_model": 540,
+    "n_heads": 12,
+    "dropout": 0.1,
+    "text_in_dim": 768,
+    "project_text": true,
+    "vision_backbone": "rad_dino_maira_2",
+    "use_cls_heads": true
+  },
+  "norm_mode": "rad_dino_maira_2",
+  "image_size": 518,
+  "text_embedding": {
+    "model": "Qwen3-Embedding-4B",
+    "truncate_dim": 768,
+    "max_length": 2048,
+    "language": "de"
+  }
+}

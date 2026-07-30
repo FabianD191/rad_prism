@@ -1,0 +1,37 @@
+# ============================================================================
+# Configuration for extract_binary_labels.py
+# ============================================================================
+# CLI arguments override values set here.
+
+# ── Input data ──
+reports_csv: "data/sample_reports.csv"
+report_id_column: "report_id"
+json_dir: "data/sample_structured_jsons"
+
+# ── JSON file naming ──
+json_filename_template: "{report_id}_structured.json"
+# json_fallback_glob: "{report_id}*.json"
+
+# ── Concepts ──
+concepts_file: "templates/concepts.txt"
+# concepts: "support_devices.airway,thoracic_organs.heart"  # inline alternative
+
+# ── Output ──
+out_dir: "output/binary_labels"
+shard_size: 20000
+label_dtype: "float32"
+
+# ── Pathology label imputation ──
+# When a pathologies field has label=0 (unknown) but enough other pathology
+# fields in the same report carry non-zero labels, impute it as negative (0, valid).
+# disable_pathology_imputation: false
+# impute_pathology_targets: ""  # empty = auto-detect from concepts list
+pathology_valid_threshold_pct: 15.0
+pathology_min_other_fields: 1
+sampling_seed: 42
+
+# ── Abundance balance (optional) ──
+# Limits imputed labels per concept to match natural occurrence counts.
+concept_stats_csv: "data/concept_stats.csv"
+abundance_count_column: "n_samples_with_text"
+# disable_abundance_balance: false

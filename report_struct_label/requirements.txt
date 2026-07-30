@@ -1,0 +1,19 @@
+# Core dependencies
+pandas>=1.5
+numpy>=1.23
+pydantic>=2.0
+tqdm>=4.60
+pyyaml>=6.0
+
+# LLM structuring/labeling (report_structuring_labeling.py)
+openai>=1.0
+httpx>=0.24
+jsonschema>=4.0
+
+# Embedding (embed_structured_reports.py)
+torch>=2.0
+transformers>=4.51.0,<5        # Qwen3 support; v5 requires a newer runtime stack
+sentence-transformers>=2.7     # needed for --model-backend sentence_transformer
+
+# Label extraction (extract_binary_labels.py)
+pyarrow>=12.0                 # for parquet I/O

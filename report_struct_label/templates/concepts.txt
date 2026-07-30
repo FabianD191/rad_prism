@@ -1,0 +1,27 @@
+# Binary label concept names (one per line)
+# These correspond to dot-separated paths in the structured JSON output.
+#
+# support_devices (binary: present / not present)
+support_devices.airway
+support_devices.gastric_tube
+support_devices.central_line
+support_devices.chest_drain
+support_devices.pacemaker
+support_devices.other
+#
+# thoracic_organs (score 0-3 -> binary: 0=not mentioned, 1=normal, 2-3=pathologic)
+thoracic_organs.heart
+thoracic_organs.mediastinum
+#
+# pathologies (score 0-3 -> binary)
+pathologies.lung.pneumonia
+pathologies.lung.atelectasis
+pathologies.lung.emphysema
+pathologies.lung.fibrosis
+pathologies.lung.mass
+pathologies.pleura.pneumothorax
+pathologies.pleura.pleural_effusion
+pathologies.vessels.congestion
+pathologies.vessels.pulmonary_edema
+pathologies.bones.fracture
+pathologies.bones.other

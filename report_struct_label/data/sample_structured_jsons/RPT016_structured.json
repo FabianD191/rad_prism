@@ -1,0 +1,44 @@
+{
+  "report_id": "RPT016",
+  "data": {
+    "examination": "Chest PA",
+    "clinical_information": "48-year-old female, follow-up after treatment for community-acquired pneumonia.",
+    "report_date": "",
+    "comparison": { "text": "", "label": "not present" },
+    "support_devices": {
+      "airway": { "text": "", "label": "not present" },
+      "gastric_tube": { "text": "", "label": "not present" },
+      "central_line": { "text": "", "label": "not present" },
+      "chest_drain": { "text": "", "label": "not present" },
+      "pacemaker": { "text": "", "label": "not present" },
+      "other": { "text": "No support devices", "label": "not present" }
+    },
+    "thoracic_organs": {
+      "heart": { "text": "Heart size is normal", "label": 1 },
+      "mediastinum": { "text": "Mediastinum is unremarkable", "label": 1 }
+    },
+    "pathologies": {
+      "lung": {
+        "pneumonia": { "text": "Near-complete resolution of the previously seen right lower lobe consolidation", "label": 1 },
+        "atelectasis": { "text": "Minimal residual linear opacity at the right base, likely subsegmental atelectasis", "label": 2 },
+        "emphysema": { "text": "", "label": 0 },
+        "fibrosis": { "text": "", "label": 0 },
+        "mass": { "text": "", "label": 0 }
+      },
+      "pleura": {
+        "pneumothorax": { "text": "No pneumothorax", "label": 1 },
+        "pleural_effusion": { "text": "No pleural effusion", "label": 1 }
+      },
+      "vessels": {
+        "congestion": { "text": "", "label": 0 },
+        "pulmonary_edema": { "text": "No pulmonary edema", "label": 1 }
+      },
+      "bones": {
+        "fracture": { "text": "Osseous structures are intact", "label": 1 },
+        "other": { "text": "", "label": 0 }
+      }
+    },
+    "other_findings": "",
+    "impression": "1. Near-complete resolution of right lower lobe pneumonia. 2. Minimal right basilar atelectasis. 3. No complications."
+  }
+}

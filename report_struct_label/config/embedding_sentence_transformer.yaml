@@ -1,0 +1,54 @@
+# ============================================================================
+# Configuration for embed_structured_reports.py — SentenceTransformer backend
+# ============================================================================
+# Example: Qwen3-Embedding-4B
+# CLI arguments override values set here.
+
+# ── Model ──
+model_backend: "sentence_transformer"
+model_dir: "/path/to/Qwen3-Embedding-4B"
+device: "cuda:0"
+precision: "bfloat16"
+
+# ── Input data ──
+reports_csv: "data/sample_reports.csv"
+report_id_column: "report_id"
+json_dir: "data/sample_structured_jsons"
+neg_sampling_path: "templates/neg_entry_sampling.json"
+
+# ── JSON file naming ──
+json_filename_template: "{report_id}_structured.json"
+# json_fallback_glob: "{report_id}*.json"
+
+# ── Output ──
+out_dir: "output/embeddings_qwen3"
+shard_size: 50000
+
+# ── What to embed ──
+embed_level: "both"                 # "leaf", "full", or "both"
+exclude_fields: "structured.report_date,structured.comparison"
+store_text: true
+
+# ── Embedding parameters ──
+batch_size: 16
+truncate_dim: 768
+max_length: 2048
+overflow_strategy: "truncate"
+
+# ── Imputation controls ──
+# disable_therapiehilfen_imputation: false   # uses support_devices in code
+# disable_pathologien_imputation: false       # uses pathologies in code
+pathologien_valid_threshold_pct: 15.0
+pathologien_min_other_fields: 1
+sampling_seed: 42
+
+# ── Abundance balance (optional) ──
+# Limits imputed samples per concept to match natural text occurrence counts.
+# Enable by uncommenting concept_stats_csv below.
+concept_stats_csv: "data/concept_stats.csv"
+abundance_count_column: "n_samples_with_text"
+# disable_abundance_balance: false
+
+# ── Resume ──
+resume: false
+resume_mode: "last_shard"           # "last_shard" or "skip_processed"

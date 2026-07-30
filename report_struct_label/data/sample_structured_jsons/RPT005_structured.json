@@ -1,0 +1,44 @@
+{
+  "report_id": "RPT005",
+  "data": {
+    "examination": "Chest portable AP",
+    "clinical_information": "Fall from standing height, rib pain.",
+    "report_date": "",
+    "comparison": { "text": "", "label": "not present" },
+    "support_devices": {
+      "airway": { "text": "", "label": "not present" },
+      "gastric_tube": { "text": "", "label": "not present" },
+      "central_line": { "text": "", "label": "not present" },
+      "chest_drain": { "text": "", "label": "not present" },
+      "pacemaker": { "text": "", "label": "not present" },
+      "other": { "text": "No support devices identified", "label": "not present" }
+    },
+    "thoracic_organs": {
+      "heart": { "text": "Heart size appears normal for technique", "label": 1 },
+      "mediastinum": { "text": "", "label": 0 }
+    },
+    "pathologies": {
+      "lung": {
+        "pneumonia": { "text": "Lungs are clear without consolidation", "label": 1 },
+        "atelectasis": { "text": "Subtle linear atelectasis at the right base", "label": 2 },
+        "emphysema": { "text": "", "label": 0 },
+        "fibrosis": { "text": "", "label": 0 },
+        "mass": { "text": "", "label": 0 }
+      },
+      "pleura": {
+        "pneumothorax": { "text": "No pneumothorax", "label": 1 },
+        "pleural_effusion": { "text": "No pleural effusion", "label": 1 }
+      },
+      "vessels": {
+        "congestion": { "text": "", "label": 0 },
+        "pulmonary_edema": { "text": "", "label": 0 }
+      },
+      "bones": {
+        "fracture": { "text": "minimally displaced fracture of the right 7th rib laterally", "label": 3 },
+        "other": { "text": "Mild degenerative changes", "label": 2 }
+      }
+    },
+    "other_findings": "",
+    "impression": "1. Minimally displaced right 7th rib fracture. 2. Subtle right basilar atelectasis, may be related to splinting. 3. No pneumothorax."
+  }
+}

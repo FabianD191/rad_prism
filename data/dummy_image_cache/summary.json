@@ -1,0 +1,22 @@
+{
+  "format": "sharded_image_cache_v1",
+  "created_at_utc": "",
+  "source_master_index": "data/dummy_master_index.csv",
+  "image_column": "image_path",
+  "accession_column": "accession",
+  "sop_uid_column": "SOPInstanceUID",
+  "image_size": 518,
+  "shard_size": 4096,
+  "storage_dtype": "float16",
+  "keep_aspect_ratio": true,
+  "pad_value": 0.0,
+  "resample": "bilinear",
+  "contrast_mode": "none",
+  "contrast_low_pct": 1.0,
+  "contrast_high_pct": 99.0,
+  "processed_new_images": 20,
+  "skipped_existing": 0,
+  "skipped_errors": 0,
+  "num_images_total": 20,
+  "num_shards_total": 1
+}

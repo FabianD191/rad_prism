@@ -1,0 +1,43 @@
+# ============================================================================
+# Dummy fine-tuning config — end-to-end smoke test on the bundled dummy dataset.
+# ============================================================================
+# Point pretrain.* at a dummy pretraining run (created by pretrain_dummy.yaml),
+# then run from the RadPRISM/ root:
+#   python training/finetuning/train_run_finetune_cls.py --config training/config/finetune_cls_dummy.yaml
+#
+# Replace <PRETRAIN_RUN> with the actual timestamped directory under
+# output/dummy_runs/ (e.g. output/dummy_runs/20260101-000000).
+
+pretrain:
+  ckpt_path: "output/dummy_runs/<PRETRAIN_RUN>/best_align.pt"
+  config_path: "output/dummy_runs/<PRETRAIN_RUN>/config.json"
+  reset_cls_heads: true
+
+paths:
+  run_dir: "output/dummy_finetune_runs"
+  # Reuse the pretraining split so val is disjoint from train.
+  split_path: "output/dummy_runs/<PRETRAIN_RUN>/splits_patient.parquet"
+  cached_dataset_path: "data/dummy_image_cache"
+
+data:
+  # Classification labels come from the report-pipeline label cache.
+  cls_override_dir: "data/dummy_label_cache"
+  use_cls_override: true
+  cls_override_mode: "sharded"
+  num_workers: 0
+  batch_size: 4
+
+train:
+  epochs: 1
+  lr: 5.0e-4
+  warmup_steps: 5
+  log_every: 1
+  save_every_epochs: 1
+  bf16: false
+  device: "cpu"
+
+losses:
+  w_cls: 1.0
+  use_concept_balanced_reduction: true
+  use_tempered_pos_weight: true
+  tempered_pos_weight_gamma: 0.7

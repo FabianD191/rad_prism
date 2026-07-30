@@ -1,0 +1,141 @@
+# ============================================================================
+# Configuration for train_run_pretrain.py
+# ============================================================================
+# Every key maps to a field of the matching dataclass in the training script.
+# Values set here override the built-in defaults; a few options can also be
+# overridden on the command line (--device, --epochs, --batch-size, --seed,
+# --run-dir), which take priority over this file.
+#
+# Replace the placeholder paths (/path/to/...) with your own before running.
+
+# ── Filesystem locations ────────────────────────────────────────────────────
+paths:
+  # Master index: one row per image, joining image path, accession and
+  # (optionally) patient id. CSV or parquet.
+  master_index_path: "/path/to/master_index.csv"
+  # Directory of pre-computed report text embeddings (sharded store, keyed by
+  # accession + "structured.<concept>" field). Produced by the report pipeline.
+  embedding_dir: "/path/to/text_embeddings"
+  # Structured report labels (only needed when losses.use_cls_loss = true).
+  label_dir: null
+  # Parent directory for run outputs (a timestamped sub-directory is created).
+  run_dir: "output/runs"
+  # Pre-computed train/val/test split (parquet with columns group_id, split).
+  # If null, a new split is created from the master index using data.split_on.
+  split_path: null
+  # Sharded / pre-cached image tensors (fast path). If null or missing, images
+  # are read from PNG files on the fly via the master index.
+  cached_dataset_path: null
+
+# ── Data, augmentation and dataloader ───────────────────────────────────────
+data:
+  image_size: 518
+  augment: true
+  norm_mode: "rad_dino_maira_2"        # "imagenet" | "rad_dino_maira_2" | "cxr" | ...
+  batch_size: 256
+  effective_batch: 256                 # gradient accumulation target (>= batch_size)
+  num_workers: 4
+  max_train: null                      # subsample train split for quick tests
+  max_val: null
+
+  # Split creation (used only when paths.split_path is null)
+  val_frac: 0.1
+  test_frac: 0.1
+  split_on: "patient"                  # "patient" | "accession" | "image"
+  accession_column: "accession"
+  sop_uid_column: "SOPInstanceUID"
+
+  # Text-embedding override store (sharded reader keyed by accession).
+  text_override_dir: "/path/to/text_embeddings"
+  use_text_override: true
+  text_override_cache_size: 512
+  text_override_strict: true
+  text_override_mode: "sharded"
+
+  # Classification-label override store (only needed when use_cls_loss = true).
+  cls_override_dir: null
+  use_cls_override: true
+  cls_override_cache_size: 1024
+  cls_override_strict: true
+  cls_override_mode: "sharded"
+
+  dataloader_prefetch_factor: 4
+  dataloader_persistent_workers: false
+  dataloader_pin_memory: true
+
+  # Augmentation parameters
+  affine_degrees: 5
+  affine_translate: [0.02, 0.02]
+  cornercutout_size: [0.2, 0.25]
+  cornercutout_probs: {tl: 0.7, tr: 0.85, bl: 0.0, br: 0.0}
+  cornercutout_fill: 0.0
+
+  # Concept selection. By default the model trains on all 19 fine concepts.
+  # Set an explicit list to restrict the classification head, and/or list
+  # alignment-only concepts under align_extra_concepts.
+  cls_concept_names: null
+  align_extra_concepts: []
+
+# ── Model architecture ──────────────────────────────────────────────────────
+model:
+  vision_backbone: "rad_dino_maira_2"  # "resnet50" | "dinov2" | "rad_dino_maira_2"
+  rad_dino_model_dir: "/path/to/rad-dino-maira-2"   # local HuggingFace model dir
+  dinov2_repo_path: null               # local DINOv2 repo (only for backbone=dinov2)
+  dinov2_weights_path: null            # local DINOv2 weights (only for backbone=dinov2)
+  d_model: 540
+  n_heads: 12
+  dropout: 0.1
+  text_in_dim: 768                     # dimension of the pre-computed text embeddings
+  project_text: true
+  pretrained_vision: false
+  vision_weights_path: null
+  use_cls_heads: false                 # enable per-concept classification heads
+
+# ── Optimization ────────────────────────────────────────────────────────────
+train:
+  epochs: 8
+  freeze_backbone_epochs: 8            # keep the vision backbone frozen for N epochs
+  lr: 5.0e-5
+  weight_decay: 1.0e-4
+  warmup_steps: 1000
+  log_every: 10
+  save_every_epochs: 5
+  bf16: true
+  device: "cuda:0"
+  clip_grad_norm: 1.0
+  seed: 1337
+  seed_list: []                        # non-empty -> one child process per seed
+
+# ── Losses ──────────────────────────────────────────────────────────────────
+losses:
+  use_cls_loss: false                  # auxiliary BCE classification head
+  use_align_loss: true                 # concept alignment (InfoNCE) — main objective
+
+  # Classification (only used when use_cls_loss = true)
+  pos_weight_path: null
+  max_pos_weight: 40.0
+
+  # Loss weights
+  w_cls: 0.1
+  w_align: 1.0
+
+  # Concept alignment (InfoNCE)
+  concept_averaged_align: true         # macro-average over concepts (recommended)
+  tau_align: 0.07                       # temperature (init value if learnable)
+  learnable_concept_taus: true         # learn one temperature per concept
+  min_tau_align: 0.02
+  max_tau_align: 0.12
+  symmetric_align: true
+
+# ── Concept-aware weighted sampling  ────────────────────────────
+strategy:
+  use_weighted_sampling: true
+  # CSV with columns [split, concept_name, pct_samples_with_text] from the report
+  # pipeline's concept-statistics step. If null, coverage is estimated by scanning
+  # the sharded embedding index (slower).
+  weighted_sampling_coverage_csv: null
+  weighted_sampling_split: "train"
+  weighted_sampling_rare_threshold: 0.10
+  weighted_sampling_target_coverage: 0.10
+  # Where to cache the computed per-sample weights (.npy). Reused on later runs.
+  weighted_sampling_cache_path: null

@@ -1,0 +1,52 @@
+# ============================================================================
+# Configuration for report_structuring_labeling.py
+# ============================================================================
+# All paths can be absolute or relative to the working directory.
+# CLI arguments override values set here.
+
+# ── Input / Output ──
+reports_csv_path: "data/sample_reports.csv"
+system_prompt_path: "templates/system_prompt.md"
+schema_path: "templates/output_schema.json"
+output_dir: "output/structured_jsons"
+output_suffix: "structured"
+
+# ── CSV column mapping ──
+report_id_column: "report_id"
+report_text_column: "report_text"
+exam_column: "examination"
+metadata_columns: "report_id"
+
+# ── User message template ──
+# Available placeholders: {report_text}, {exam_description}
+user_message_template: |
+  Input (free text):
+  Examination: {exam_description}
+  Report text: {report_text}
+
+# ── API configuration ──
+api_base: "http://your-api-host:port"
+api_key: ""                          # or set the OPENAI_API_KEY env var
+model_name: "your-model-name"        # e.g., "gpt-4o", "llama-3", etc.
+
+# ── Processing controls ──
+batch_size: 5000                  # CSV rows per chunk (memory management)
+max_to_process: 0                   # 0 = no limit
+
+# ── Parallelism ──
+max_concurrency: 15
+
+# ── Timeouts and retries ──
+request_timeout_s: 60.0
+max_retries: 10
+initial_backoff_s: 1.0
+max_backoff_s: 60.0
+max_jitter_s: 0.75
+retryable_statuses: [408, 429, 500, 502, 503, 504]
+temperature: 0.0
+
+# ── Optional provider-specific parameters ──
+# service_tier: "normal"
+# reasoning_effort_default: "low"
+# reasoning_effort_on_retry: "medium"
+max_tokens: 4000

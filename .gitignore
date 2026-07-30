@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Environments and local configuration
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+env/
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+*~
+
+# Generated runs, caches, and logs
+output/
+outputs/
+runs/
+checkpoints/
+wandb/
+*.log
+*.pid
+training/logs/*
+!training/logs/.gitkeep
+report_struct_label/logs/*
+!report_struct_label/logs/.gitkeep
+
+# Locally downloaded external models
+models/

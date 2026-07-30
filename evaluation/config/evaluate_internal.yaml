@@ -1,0 +1,53 @@
+# ============================================================================
+# Configuration for evaluate_internal.py
+# ============================================================================
+# Evaluate a trained RadPRISM model on an internal dataset. Point model.run_dir
+# at a fine-tuning (or pretraining) run directory; the model architecture and
+# data settings are read from that run's config.json.
+
+model:
+  run_dir: "/path/to/finetune_run"        # directory containing config.json + checkpoint
+  checkpoint_name: "best_cls.pt"
+  device: "cuda:0"
+  # For fine-tune runs, merge the parent pretrain config underneath (for the full 'model' block).
+  use_parent_pretrain_config: true
+  parent_pretrain_config_path: null       # null -> taken from run config's pretrain.config_path
+  auto_parent_from_finetune_config: true
+
+# Which evaluation modes to run (each independent).
+modes:
+  thresholds: true      # per-concept best-F1 / Youden-J thresholds on the val split
+  classify: true        # cls-head classification metrics (AUROC/AUPRC/F1)
+  zero_shot: false      # zero-shot prompt classification (needs a text-embedding model)
+  retrieve: true        # concept-wise text retrieval
+
+data:
+  splits: ["val", "test"]
+  batch_size: 64
+  num_workers: 4
+  max_samples: null      # subsample each split for a quick check
+  # Overrides (null = inherit from the run's config.json):
+  cached_dataset_path: null
+  split_path: null
+
+# Text-embedding backend for zero-shot prompts and retrieval snippets.
+text_embedding:
+  backend: "sentence_transformer"    # sentence_transformer | auto_model | hash
+  model_dir: "/path/to/Qwen3-Embedding-4B"   # the model that produced the training text embeddings
+  device: null                       # null -> model.device
+  precision: "bfloat16"              # float16 | bfloat16 | float32
+  pooling: "mean"                    # auto_model only: mean | cls
+  max_length: 512
+  batch_size: 32
+  truncate_dim: 768                  # MRL truncation to model text_in_dim
+
+zero_shot:
+  prompt_db_path: null               # JSON: {concept: {positive: [...], negative: [...]}}
+  prompt_pooling: "mean"             # mean | max
+  temperature: 1.0
+
+retrieve:
+  custom_text_db_path: null          # JSON: {concept_texts: {concept: [sentences]}}
+  top_k: 3
+
+output_dir: null                     # null -> <run_dir>/eval_internal/<timestamp>

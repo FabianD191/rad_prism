@@ -1,0 +1,82 @@
+{
+  "_meta": "German text database for the RadPRISM checkpoint demo. The model was trained on German Qwen3-Embedding-4B text vectors, so the 'de' text is embedded and used for all similarity/zero-shot math; the 'en' translation is what the demo displays. Not clinically curated.",
+  "language_internal": "de",
+  "concepts": {
+    "support_devices.airway": {
+      "retrieval": [{"de": "Endotrachealtubus in regelrechter Position.", "en": "Endotracheal tube in good position."}, {"de": "Tracheostomiekanuele projiziert sich auf die Trachea.", "en": "Tracheostomy tube projects over the trachea."}, {"de": "Kein endotrachealer Tubus nachweisbar.", "en": "No endotracheal tube is seen."}],
+      "zero_shot": {"positive": ["Ein Endotrachealtubus ist vorhanden.", "Eine Tracheostomiekanuele ist vorhanden."], "negative": ["Keine Atemwegshilfe.", "Kein Tubus nachweisbar."]}
+    },
+    "support_devices.gastric_tube": {
+      "retrieval": [{"de": "Magensonde mit Spitze im Magen.", "en": "Nasogastric tube with tip in the stomach."}, {"de": "Ernaehrungssonde unterhalb des Zwerchfells.", "en": "Feeding tube courses below the diaphragm."}, {"de": "Magensonde nicht nachweisbar.", "en": "No gastric tube is present."}],
+      "zero_shot": {"positive": ["Eine Magensonde ist vorhanden.", "Eine Ernaehrungssonde ist vorhanden."], "negative": ["Keine Magensonde.", "Keine enterale Sonde nachweisbar."]}
+    },
+    "support_devices.central_line": {
+      "retrieval": [{"de": "ZVK-Spitze in der Vena cava superior.", "en": "Central venous catheter tip in the SVC."}, {"de": "Portkatheter rechts pektoral mit cavoatrialer Spitze.", "en": "Right pectoral port catheter with cavoatrial tip."}, {"de": "Kein zentralvenoeser Zugang nachweisbar.", "en": "No central venous catheter is present."}],
+      "zero_shot": {"positive": ["Ein zentralvenoeser Zugang ist vorhanden.", "Ein zentraler Katheter ist vorhanden."], "negative": ["Kein zentralvenoeser Zugang.", "Kein zentraler Katheter nachweisbar."]}
+    },
+    "support_devices.chest_drain": {
+      "retrieval": [{"de": "Rechtsseitige Thoraxdrainage in regelrechter Lage.", "en": "Right-sided chest drain in good position."}, {"de": "Thoraxdrainage links apikal.", "en": "Left apical chest tube."}, {"de": "Keine Thoraxdrainage nachweisbar.", "en": "No chest drain is seen."}],
+      "zero_shot": {"positive": ["Eine Thoraxdrainage ist vorhanden.", "Eine Pleuradrainage ist vorhanden."], "negative": ["Keine Thoraxdrainage.", "Keine Drainage nachweisbar."]}
+    },
+    "support_devices.pacemaker": {
+      "retrieval": [{"de": "Zweikammer-Schrittmacher mit Sonden regelrecht.", "en": "Dual-chamber pacemaker with leads in place."}, {"de": "Schrittmacheraggregat links pektoral.", "en": "Left pectoral pacemaker generator."}, {"de": "Kein Herzschrittmacher nachweisbar.", "en": "No pacemaker is present."}],
+      "zero_shot": {"positive": ["Ein Herzschrittmacher ist vorhanden.", "Schrittmachersonden sind vorhanden."], "negative": ["Kein Herzschrittmacher.", "Kein kardiales Device nachweisbar."]}
+    },
+    "support_devices.other": {
+      "retrieval": [{"de": "Sternalcerclagen nach Sternotomie.", "en": "Sternotomy wires after sternotomy."}, {"de": "Chirurgische Clips im Mediastinum.", "en": "Surgical clips in the mediastinum."}, {"de": "Keine weiteren Fremdmaterialien.", "en": "No other support devices."}],
+      "zero_shot": {"positive": ["Weitere Fremdmaterialien sind vorhanden.", "Chirurgisches Material ist vorhanden."], "negative": ["Keine weiteren Fremdmaterialien.", "Kein zusaetzliches Material."]}
+    },
+    "thoracic_organs.heart": {
+      "retrieval": [{"de": "Das Herz ist vergroessert.", "en": "The heart is enlarged."}, {"de": "Kardiomegalie.", "en": "Cardiomegaly."}, {"de": "Herzgroesse normal.", "en": "Heart size is normal."}],
+      "zero_shot": {"positive": ["Das Herz ist vergroessert.", "Es besteht eine Kardiomegalie."], "negative": ["Die Herzgroesse ist normal.", "Keine Kardiomegalie."]}
+    },
+    "thoracic_organs.mediastinum": {
+      "retrieval": [{"de": "Verbreitertes Mediastinum.", "en": "Widened mediastinum."}, {"de": "Verbreiterte kardiomediastinale Silhouette.", "en": "Widened cardiomediastinal silhouette."}, {"de": "Mediastinum unauffaellig.", "en": "Unremarkable mediastinum."}],
+      "zero_shot": {"positive": ["Das Mediastinum ist verbreitert.", "Die kardiomediastinale Silhouette ist verbreitert."], "negative": ["Das Mediastinum ist normal.", "Keine mediastinale Verbreiterung."]}
+    },
+    "pathologies.lung.pneumonia": {
+      "retrieval": [{"de": "Konsolidierung im rechten Unterlappen, vereinbar mit Pneumonie.", "en": "Right lower lobe consolidation consistent with pneumonia."}, {"de": "Fleckige Verschattung, infektverdaechtig.", "en": "Patchy opacity suspicious for infection."}, {"de": "Kein Anhalt fuer eine Pneumonie.", "en": "No evidence of pneumonia."}],
+      "zero_shot": {"positive": ["Es besteht eine Pneumonie.", "Es zeigt sich eine Konsolidierung."], "negative": ["Keine Pneumonie.", "Keine Konsolidierung."]}
+    },
+    "pathologies.lung.atelectasis": {
+      "retrieval": [{"de": "Basale Atelektase beidseits.", "en": "Bibasilar atelectasis."}, {"de": "Streifige Minderbelueftung links basal.", "en": "Linear atelectasis at the left base."}, {"de": "Keine Atelektase.", "en": "No atelectasis."}],
+      "zero_shot": {"positive": ["Es besteht eine Atelektase.", "Es zeigt sich eine Minderbelueftung."], "negative": ["Keine Atelektase.", "Die Lunge ist vollstaendig entfaltet."]}
+    },
+    "pathologies.lung.emphysema": {
+      "retrieval": [{"de": "Ueberblaehte Lunge mit emphysematischen Veraenderungen.", "en": "Hyperinflated lungs with emphysema."}, {"de": "Lungenemphysem.", "en": "Pulmonary emphysema."}, {"de": "Kein Emphysem.", "en": "No emphysema."}],
+      "zero_shot": {"positive": ["Es besteht ein Emphysem.", "Die Lunge ist ueberblaeht."], "negative": ["Kein Emphysem.", "Keine Ueberblaehung."]}
+    },
+    "pathologies.lung.fibrosis": {
+      "retrieval": [{"de": "Basale Retikulationen, vereinbar mit Lungenfibrose.", "en": "Basal reticulation consistent with pulmonary fibrosis."}, {"de": "Interstitielle fibrotische Veraenderungen.", "en": "Interstitial fibrotic changes."}, {"de": "Keine Fibrose.", "en": "No fibrosis."}],
+      "zero_shot": {"positive": ["Es besteht eine Lungenfibrose.", "Es zeigen sich interstitielle Veraenderungen."], "negative": ["Keine Fibrose.", "Keine interstitielle Erkrankung."]}
+    },
+    "pathologies.lung.mass": {
+      "retrieval": [{"de": "Rundherd im rechten Oberlappen.", "en": "Nodular mass in the right upper lobe."}, {"de": "Pulmonaler Rundherd.", "en": "Pulmonary nodule."}, {"de": "Kein Rundherd oder Raumforderung.", "en": "No mass or nodule."}],
+      "zero_shot": {"positive": ["Es besteht eine Raumforderung.", "Es zeigt sich ein Rundherd."], "negative": ["Keine Raumforderung.", "Kein Rundherd."]}
+    },
+    "pathologies.pleura.pneumothorax": {
+      "retrieval": [{"de": "Kleiner apikaler Pneumothorax rechts.", "en": "Small right apical pneumothorax."}, {"de": "Ausgedehnter Pneumothorax links.", "en": "Large left pneumothorax."}, {"de": "Kein Pneumothorax.", "en": "No pneumothorax."}],
+      "zero_shot": {"positive": ["Es besteht ein Pneumothorax.", "Es zeigt sich Pleuraluft."], "negative": ["Kein Pneumothorax.", "Keine Pleuraluft."]}
+    },
+    "pathologies.pleura.pleural_effusion": {
+      "retrieval": [{"de": "Maessiger Pleuraerguss links.", "en": "Moderate left pleural effusion."}, {"de": "Verstrichener Randwinkel bei Erguss.", "en": "Blunted costophrenic angle from effusion."}, {"de": "Kein Pleuraerguss.", "en": "No pleural effusion."}],
+      "zero_shot": {"positive": ["Es besteht ein Pleuraerguss.", "Es zeigt sich Pleurafluessigkeit."], "negative": ["Kein Pleuraerguss.", "Keine Pleurafluessigkeit."]}
+    },
+    "pathologies.vessels.congestion": {
+      "retrieval": [{"de": "Pulmonalvenoese Stauung.", "en": "Pulmonary venous congestion."}, {"de": "Zeichen der zentralen Stauung.", "en": "Signs of central congestion."}, {"de": "Keine Stauung.", "en": "No congestion."}],
+      "zero_shot": {"positive": ["Es besteht eine pulmonalvenoese Stauung.", "Es zeigt sich eine zentrale Stauung."], "negative": ["Keine Stauung.", "Die Lungengefaesse sind normal."]}
+    },
+    "pathologies.vessels.pulmonary_edema": {
+      "retrieval": [{"de": "Interstitielles Lungenoedem.", "en": "Interstitial pulmonary edema."}, {"de": "Diffuses alveolaeres Oedem.", "en": "Diffuse alveolar edema."}, {"de": "Kein Lungenoedem.", "en": "No pulmonary edema."}],
+      "zero_shot": {"positive": ["Es besteht ein Lungenoedem.", "Es zeigt sich ein interstitielles Oedem."], "negative": ["Kein Lungenoedem.", "Kein interstitielles Oedem."]}
+    },
+    "pathologies.bones.fracture": {
+      "retrieval": [{"de": "Akute Rippenfraktur rechts.", "en": "Acute right rib fracture."}, {"de": "Dislozierte Klavikulafraktur.", "en": "Displaced clavicular fracture."}, {"de": "Keine akute Fraktur.", "en": "No acute fracture."}],
+      "zero_shot": {"positive": ["Es besteht eine Fraktur.", "Es zeigt sich eine akute Fraktur."], "negative": ["Keine Fraktur.", "Keine akute ossaere Verletzung."]}
+    },
+    "pathologies.bones.other": {
+      "retrieval": [{"de": "Degenerative Veraenderungen der BWS.", "en": "Degenerative changes of the thoracic spine."}, {"de": "Alte konsolidierte Rippenfrakturen.", "en": "Old healed rib fractures."}, {"de": "Keine weiteren ossaeren Auffaelligkeiten.", "en": "No other osseous abnormality."}],
+      "zero_shot": {"positive": ["Es besteht eine weitere ossaere Auffaelligkeit.", "Es zeigen sich degenerative Veraenderungen."], "negative": ["Keine weiteren ossaeren Auffaelligkeiten.", "Die ossaeren Strukturen sind normal."]}
+    }
+  }
+}

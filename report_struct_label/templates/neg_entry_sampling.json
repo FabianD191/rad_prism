@@ -1,0 +1,103 @@
+{
+  "support_devices.airway": [
+    "No endotracheal tube present.",
+    "Airways clear, no airway devices identified.",
+    "No tracheostomy cannula or endotracheal tube in place."
+  ],
+
+  "support_devices.pacemaker": [
+    "No pacemaker or ICD identified.",
+    "No cardiac pacing device present.",
+    "No implanted cardiac rhythm device visible."
+  ],
+
+  "support_devices.gastric_tube": [
+    "No nasogastric tube present.",
+    "No enteral feeding tube identified.",
+    "No gastric tube or nasojejunal tube in place."
+  ],
+
+  "support_devices.other": [
+    "No additional support devices identified.",
+    "No other therapeutic devices visible.",
+    "No further foreign material in the thorax."
+  ],
+
+  "support_devices.chest_drain": [
+    "No chest tube present.",
+    "No pleural drain identified.",
+    "No thoracic drainage system in place."
+  ],
+
+  "support_devices.central_line": [
+    "No central venous catheter present.",
+    "No CVC or port identified.",
+    "No central line or PICC in place."
+  ],
+
+  "pathologies.vessels.pulmonary_edema": [
+    "No pulmonary edema.",
+    "No evidence of interstitial or alveolar edema.",
+    "Lungs without signs of pulmonary edema."
+  ],
+
+  "pathologies.bones.fracture": [
+    "No fracture identified.",
+    "No evidence of osseous injury.",
+    "Bony thorax intact without fracture."
+  ],
+
+  "pathologies.lung.emphysema": [
+    "No emphysema.",
+    "No evidence of pulmonary emphysema.",
+    "Lungs without emphysematous changes."
+  ],
+
+  "pathologies.lung.fibrosis": [
+    "No fibrosis.",
+    "No evidence of pulmonary fibrosis.",
+    "No interstitial changes suggestive of fibrosis."
+  ],
+
+  "pathologies.lung.mass": [
+    "No pulmonary mass identified.",
+    "No nodule or mass lesion.",
+    "Lungs free of mass or focal lesion."
+  ],
+
+  "pathologies.lung.atelectasis": [
+    "Lungs are well aerated bilaterally.",
+    "No atelectasis identified.",
+    "No evidence of atelectasis or subsegmental atelectasis."
+  ],
+
+  "pathologies.lung.pneumonia": [
+    "No pneumonia.",
+    "No evidence of pneumonic consolidation.",
+    "Lungs clear without infiltrates suggestive of pneumonia."
+  ],
+
+  "pathologies.pleura.pneumothorax": [
+    "No pneumothorax.",
+    "No evidence of pneumothorax bilaterally.",
+    "No pleural air identified."
+  ],
+
+  "pathologies.pleura.pleural_effusion": [
+    "No pleural effusion.",
+    "No evidence of pleural fluid.",
+    "Costophrenic angles are sharp bilaterally."
+  ],
+
+  "pathologies.vessels.congestion": [
+    "No pulmonary congestion.",
+    "No evidence of vascular congestion.",
+    "Pulmonary vasculature normal without congestion."
+  ],
+
+  "pathologies.bones.other": [
+    "No other osseous abnormality.",
+    "No degenerative or lytic bone changes identified.",
+    "Bony structures otherwise unremarkable."
+  ]
+}

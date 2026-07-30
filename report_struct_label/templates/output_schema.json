@@ -1,0 +1,258 @@
+{
+  "type": "object",
+  "properties": {
+    "examination": {
+      "type": "string",
+      "description": "Name of the examination from the report."
+    },
+    "clinical_information": {
+      "type": "string",
+      "description": "Indication, clinical question, and clinical information. WARNING: Do NOT derive diagnosis labels from this field!"
+    },
+    "report_date": {
+      "type": "string",
+      "description": "Date of the current report (not prior examinations)."
+    },
+    "comparison": {
+      "type": "object",
+      "properties": {
+        "text": { "type": "string", "description": "Date and modality of the prior examination." },
+        "label": { "type": "string", "enum": ["present", "not present"], "description": "Is a comparison to a prior study mentioned?" }
+      },
+      "required": ["text", "label"],
+      "additionalProperties": false
+    },
+    "support_devices": {
+      "type": "object",
+      "description": "Foreign materials / medical devices. Label 'not present' if explicitly excluded or not mentioned.",
+      "properties": {
+        "airway": {
+          "type": "object",
+          "properties": {
+            "text": { "type": "string", "description": "Text passage(s) about airway devices such as endotracheal tube, tracheostomy cannula, supraglottic airway device." },
+            "label": { "type": "string", "enum": ["present", "not present"] }
+          },
+          "required": ["text", "label"],
+          "additionalProperties": false
+        },
+        "gastric_tube": {
+          "type": "object",
+          "properties": {
+            "text": { "type": "string", "description": "Text passage(s) about gastric tubes such as orogastric tube, nasogastric (NG) tube, etc." },
+            "label": { "type": "string", "enum": ["present", "not present"] }
+          },
+          "required": ["text", "label"],
+          "additionalProperties": false
+        },
+        "central_line": {
+          "type": "object",
+          "properties": {
+            "text": { "type": "string", "description": "Text passage(s) about central venous catheter (CVC), port, Hickman, PICC, etc." },
+            "label": { "type": "string", "enum": ["present", "not present"] }
+          },
+          "required": ["text", "label"],
+          "additionalProperties": false
+        },
+        "chest_drain": {
+          "type": "object",
+          "properties": {
+            "text": { "type": "string", "description": "Text passage(s) about chest drain / pleural drain / pigtail catheter." },
+            "label": { "type": "string", "enum": ["present", "not present"] }
+          },
+          "required": ["text", "label"],
+          "additionalProperties": false
+        },
+        "pacemaker": {
+          "type": "object",
+          "properties": {
+            "text": { "type": "string", "description": "Text passage(s) about pacemaker, ICD, CRT-D, etc." },
+            "label": { "type": "string", "enum": ["present", "not present"] }
+          },
+          "required": ["text", "label"],
+          "additionalProperties": false
+        },
+        "other": {
+          "type": "object",
+          "properties": {
+            "text": { "type": "string", "description": "Text passage(s) about all other support devices such as ECMO, Impella, IABP, clips, staples, cerclage wires, other foreign material, or collective statements." },
+            "label": { "type": "string", "enum": ["present", "not present"] }
+          },
+          "required": ["text", "label"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["airway", "gastric_tube", "central_line", "chest_drain", "pacemaker", "other"],
+      "additionalProperties": false
+    },
+    "thoracic_organs": {
+      "type": "object",
+      "properties": {
+        "heart": {
+          "type": "object",
+          "properties": {
+            "text": { "type": "string", "description": "Original text about the heart." },
+            "label": { "type": "integer", "enum": [0, 1, 2, 3], "description": "0=not mentioned, 1=normal/unremarkable (e.g., not enlarged), 2=borderline/uncertain, 3=pathological (e.g., cardiomegaly/enlarged)." }
+          },
+          "required": ["text", "label"],
+          "additionalProperties": false
+        },
+        "mediastinum": {
+          "type": "object",
+          "properties": {
+            "text": { "type": "string", "description": "Original text about mediastinum, hila, aorta (ectasia/tortuosity)." },
+            "label": { "type": "integer", "enum": [0, 1, 2, 3], "description": "0=not mentioned, 1=normal/unremarkable (e.g., midline), 2=uncertain/mildly abnormal, 3=clearly pathological (e.g., widened)." }
+          },
+          "required": ["text", "label"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["heart", "mediastinum"],
+      "additionalProperties": false
+    },
+    "pathologies": {
+      "type": "object",
+      "description": "Pathological findings. Score: 0=not mentioned/no info in findings/impression, 1=excluded/normal, 2=suspicious/uncertain/equivocal, 3=clearly pathological/confirmed.",
+      "properties": {
+        "lung": {
+          "type": "object",
+          "properties": {
+            "pneumonia": {
+              "type": "object",
+              "properties": {
+                "text": { "type": "string", "description": "Text passage(s) about pneumonia, (pneumonic) infiltrates, opacities, consolidations. NOT: atelectasis." },
+                "label": { "type": "integer", "enum": [0, 1, 2, 3] }
+              },
+              "required": ["text", "label"],
+              "additionalProperties": false
+            },
+            "atelectasis": {
+              "type": "object",
+              "properties": {
+                "text": { "type": "string", "description": "Text passage(s) about ventilation abnormalities such as atelectasis, subsegmental atelectasis." },
+                "label": { "type": "integer", "enum": [0, 1, 2, 3] }
+              },
+              "required": ["text", "label"],
+              "additionalProperties": false
+            },
+            "emphysema": {
+              "type": "object",
+              "properties": {
+                "text": { "type": "string", "description": "Text passage(s) about pulmonary emphysema (COPD or emphysematous parenchymal changes). NOT soft tissue/subcutaneous/mediastinal emphysema (-> other_findings field)!" },
+                "label": { "type": "integer", "enum": [0, 1, 2, 3] }
+              },
+              "required": ["text", "label"],
+              "additionalProperties": false
+            },
+            "fibrosis": {
+              "type": "object",
+              "properties": {
+                "text": { "type": "string", "description": "Text passage(s) about fibrosis, interstitial changes (if not cardiac in origin)." },
+                "label": { "type": "integer", "enum": [0, 1, 2, 3] }
+              },
+              "required": ["text", "label"],
+              "additionalProperties": false
+            },
+            "mass": {
+              "type": "object",
+              "properties": {
+                "text": { "type": "string", "description": "Intrapulmonary mass/solid lesion, nodule, tumor or metastasis suspicion. NOT: space-occupying effusion, atelectasis, consolidation, edema, congestion, or nonspecific opacity without mass character. NOT: mediastinal/chest wall mass (-> other_findings)!" },
+                "label": { "type": "integer", "enum": [0, 1, 2, 3] }
+              },
+              "required": ["text", "label"],
+              "additionalProperties": false
+            }
+          },
+          "required": ["pneumonia", "atelectasis", "emphysema", "fibrosis", "mass"],
+          "additionalProperties": false
+        },
+        "pleura": {
+          "type": "object",
+          "properties": {
+            "pneumothorax": {
+              "type": "object",
+              "properties": {
+                "text": { "type": "string", "description": "Text passage(s) about pneumothorax. Correctly interpret e.g.: 'Lungs are fully expanded' = Label 1 (excluded)!" },
+                "label": { "type": "integer", "enum": [0, 1, 2, 3] }
+              },
+              "required": ["text", "label"],
+              "additionalProperties": false
+            },
+            "pleural_effusion": {
+              "type": "object",
+              "properties": {
+                "text": { "type": "string", "description": "Text passage(s) about pleural effusion, blunting of costophrenic angles. Correctly interpret e.g.: 'Costophrenic angles clear' = Label 1 (excluded)!" },
+                "label": { "type": "integer", "enum": [0, 1, 2, 3] }
+              },
+              "required": ["text", "label"],
+              "additionalProperties": false
+            }
+          },
+          "required": ["pneumothorax", "pleural_effusion"],
+          "additionalProperties": false
+        },
+        "vessels": {
+          "type": "object",
+          "properties": {
+            "congestion": {
+              "type": "object",
+              "properties": {
+                "text": { "type": "string", "description": "Text passage(s) about pulmonary congestion, cephalization, indistinct vascular margins/hila, engorged vessels (redistribution = early congestion)." },
+                "label": { "type": "integer", "enum": [0, 1, 2, 3] }
+              },
+              "required": ["text", "label"],
+              "additionalProperties": false
+            },
+            "pulmonary_edema": {
+              "type": "object",
+              "properties": {
+                "text": { "type": "string", "description": "Text passage(s) about interstitial/alveolar edema." },
+                "label": { "type": "integer", "enum": [0, 1, 2, 3] }
+              },
+              "required": ["text", "label"],
+              "additionalProperties": false
+            }
+          },
+          "required": ["congestion", "pulmonary_edema"],
+          "additionalProperties": false
+        },
+        "bones": {
+          "type": "object",
+          "properties": {
+            "fracture": {
+              "type": "object",
+              "properties": {
+                "text": { "type": "string", "description": "Text passage(s) about fracture(s)." },
+                "label": { "type": "integer", "enum": [0, 1, 2, 3] }
+              },
+              "required": ["text", "label"],
+              "additionalProperties": false
+            },
+            "other": {
+              "type": "object",
+              "properties": {
+                "text": { "type": "string", "description": "Text passage(s) about other osseous abnormalities (excluding fractures) such as osteopenia, degenerative changes, scoliosis, etc." },
+                "label": { "type": "integer", "enum": [0, 1, 2, 3] }
+              },
+              "required": ["text", "label"],
+              "additionalProperties": false
+            }
+          },
+          "required": ["fracture", "other"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["lung", "pleura", "vessels", "bones"],
+      "additionalProperties": false
+    },
+    "other_findings": {
+      "type": "string",
+      "description": "Remaining findings: original text passages from the report that have no dedicated field in the schema or cannot be anatomically assigned, e.g., soft tissue emphysema, elevated hemidiaphragm, subcutaneous emphysema, mediastinal emphysema, pneumomediastinum, projection artifacts. NO billing/ICD codes, no duplicate information from other schema fields!"
+    },
+    "impression": {
+      "type": "string",
+      "description": "Copy the original impression text (if present in the report)."
+    }
+  },
+  "required": ["examination", "clinical_information", "report_date", "comparison", "support_devices", "thoracic_organs", "pathologies", "other_findings", "impression"],
+  "additionalProperties": false
+}
